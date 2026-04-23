@@ -43,6 +43,9 @@
         <loc>https://prismatic-reality.com/academy/dd-investigation/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality.com/academy/decision-core-fundamentals/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality.com/academy/development-workflow/</loc>
     </url>
     <url>
@@ -4803,23 +4806,486 @@
         <loc>https://prismatic-reality.com/blog/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality.com/blog/18-pillar-doctrine-self-enforcing-quality/</loc>
+        <lastmod>2026-03-01</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/552-autonomous-agents/</loc>
+        <lastmod>2026-03-29</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/api-security-rate-limiting/</loc>
+        <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/audit-trail-implementation/</loc>
+        <lastmod>2026-04-02</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/authentication-authorization-design/</loc>
+        <lastmod>2026-03-07</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/automating-ma-due-diligence/</loc>
+        <lastmod>2026-03-21</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/beneficial-ownership-analysis/</loc>
+        <lastmod>2026-03-06</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/broadway-pipeline-processing/</loc>
+        <lastmod>2026-03-16</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/broadway-pipelines-for-continuous-osint/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/building-intelligence-platform-with-elixir/</loc>
+        <lastmod>2026-04-02</lastmod>
+    </url>
+    <url>
         <loc>https://prismatic-reality.com/blog/building-osint-adapters-with-elixir/</loc>
         <lastmod>2026-02-20</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/cer-nis2-automating-czech-compliance/</loc>
+        <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/certificate-transparency-monitoring/</loc>
+        <lastmod>2026-02-27</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/ci-cd-pipeline-architecture/</loc>
+        <lastmod>2026-03-16</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/circuit-breakers-for-flaky-osint/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/command-palette-228-commands/</loc>
+        <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/complete-guide-to-prismatic-osint-adapters/</loc>
+        <lastmod>2026-04-01</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/concurrent-data-processing/</loc>
+        <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/configuration-management-umbrella/</loc>
+        <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/cqrs-for-dd-case-state/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/cross-border-dd-challenges/</loc>
+        <lastmod>2026-03-12</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/czech-business-registry-deep-dive/</loc>
+        <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/dd-pipeline-two-phase-architecture/</loc>
+        <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/dd-report-generation/</loc>
+        <lastmod>2026-03-14</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/decision-core-closed-loop-intelligence/</loc>
+        <lastmod>2026-04-08</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/decision-core-closed-loop/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/decision-engine-data-to-intelligence/</loc>
+        <lastmod>2026-03-23</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/decision-envelopes-sealed-intelligence/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/demo-mode-safe-showcasing/</loc>
+        <lastmod>2026-03-28</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/dialyzer-specs-and-success-typing/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/dns-intelligence-enumeration/</loc>
+        <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/easm-automating-attack-surface-discovery/</loc>
+        <lastmod>2026-03-17</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/easm-continuous-attack-surface/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/ecto-changesets-validation-boundary/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/ecto-multi-for-audit-safe-writes/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/entity-resolution-connecting-intelligence-dots/</loc>
+        <lastmod>2026-03-11</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/entity-resolution-the-hard-part-of-dd/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/error-handling-strategies-elixir/</loc>
+        <lastmod>2026-03-18</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/error-intelligence-pipeline/</loc>
+        <lastmod>2026-03-20</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/ets-backed-registries-sub-millisecond-access/</loc>
+        <lastmod>2026-03-05</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/ets-backed-registries-the-performance-trick/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/feature-flags-for-gradual-rollout/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/financial-analysis-automation/</loc>
+        <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/from-monolith-to-94-apps/</loc>
+        <lastmod>2026-03-30</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/from-rescue-to-typed-errors/</loc>
+        <lastmod>2026-04-09</lastmod>
     </url>
     <url>
         <loc>https://prismatic-reality.com/blog/generation-19-ecosystem-expansion/</loc>
         <lastmod>2026-02-21</lastmod>
     </url>
     <url>
+        <loc>https://prismatic-reality.com/blog/genserver-patterns-production/</loc>
+        <lastmod>2026-03-10</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/hawkeye-visitor-intelligence/</loc>
+        <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/hypothesis-driven-investigation/</loc>
+        <lastmod>2026-03-16</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/interactive-academy-learning-intelligence/</loc>
+        <lastmod>2026-03-12</lastmod>
+    </url>
+    <url>
         <loc>https://prismatic-reality.com/blog/introducing-prismatic-sdk/</loc>
         <lastmod>2026-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/investigation-report-system/</loc>
+        <lastmod>2026-03-26</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/knowledge-graph-for-dd/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/kompletni-pruvodce-osint-adaptery-prismatic/</loc>
+        <lastmod>2026-04-01</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/kuzudb-graph-database-patterns/</loc>
+        <lastmod>2026-03-15</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/litigation-monitoring-czech/</loc>
+        <lastmod>2026-03-10</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/livebook-for-intelligence-experiments/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/liveview-hub-patterns-intelligence-ui/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/liveview-performance-patterns/</loc>
+        <lastmod>2026-03-07</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/liveview-streams-for-large-datasets/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/mcp-integration-connecting-ai-to-tools/</loc>
+        <lastmod>2026-03-31</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/meilisearch-for-intelligence-search/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/meilisearch-full-text-search/</loc>
+        <lastmod>2026-03-14</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/mendel-genetic-algorithm-system/</loc>
+        <lastmod>2026-03-17</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/meta-evolution-when-ai-evolves-ai/</loc>
+        <lastmod>2026-04-01</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/mix-releases-zero-surprise-deploys/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/mycelial-network-architecture/</loc>
+        <lastmod>2026-03-18</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/nabla-infinity-epistemic-confidence/</loc>
+        <lastmod>2026-03-20</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/nabla-infinity-epistemic-engine/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/nis2-compliance-as-code/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/notification-system-design/</loc>
+        <lastmod>2026-04-01</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/observer-in-production/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/open-corporates-integration/</loc>
+        <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/openapi-swagger-integration/</loc>
+        <lastmod>2026-03-12</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/osint-mesh-multi-source-correlation/</loc>
+        <lastmod>2026-03-15</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/osint-signal-synthesis-grace-framework/</loc>
+        <lastmod>2026-04-09</lastmod>
     </url>
     <url>
         <loc>https://prismatic-reality.com/blog/page/1/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality.com/blog/page/10/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/3/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/4/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/5/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/6/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/7/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/8/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/page/9/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/phoenix-pubsub-fan-out-patterns/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/phoenix-pubsub-real-time-events/</loc>
+        <lastmod>2026-03-02</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/platform-truth-dynamic-statistics/</loc>
+        <lastmod>2026-03-20</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/polyglot-persistence-four-adapters-one-api/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/postgresql-timescaledb-patterns/</loc>
+        <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/pre-commit-security-gates/</loc>
+        <lastmod>2026-03-06</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/prismatic-sdk-python-guide/</loc>
+        <lastmod>2026-03-10</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/prismatic-sdk-typescript-guide/</loc>
+        <lastmod>2026-03-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/property-based-testing-elixir/</loc>
+        <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/property-based-testing-for-osint-parsers/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/rag-for-internal-knowledge/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/real-time-dashboards-chartjs/</loc>
+        <lastmod>2026-03-30</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/red-team-color-operations/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/release-management-elixir/</loc>
+        <lastmod>2026-03-26</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/rest-api-auto-discovery/</loc>
+        <lastmod>2026-03-11</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/risk-scoring-methodology/</loc>
+        <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/sanctions-screening-automation/</loc>
+        <lastmod>2026-03-01</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/seadf-autonomous-development/</loc>
+        <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
         <loc>https://prismatic-reality.com/blog/security-ratings-easm-explained/</loc>
         <lastmod>2026-02-19</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/self-evolving-architecture/</loc>
+        <lastmod>2026-03-27</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/self-healing-otp-supervision-trees/</loc>
+        <lastmod>2026-03-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/seller-side-dataroom-streamlining-ma/</loc>
+        <lastmod>2026-03-25</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/shodan-integration-guide/</loc>
+        <lastmod>2026-02-25</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/sparkline-content-analysis/</loc>
+        <lastmod>2026-03-24</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/supervision-trees-for-osint-pipelines/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/task-async-stream-patterns/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/telemetry-driven-development/</loc>
+        <lastmod>2026-03-14</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/telemetry-first-observability/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/telemetry-to-prometheus-pipeline/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/threat-intelligence-feeds/</loc>
+        <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/timescaledb-for-intelligence-telemetry/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/type-safe-apis-elixir/</loc>
+        <lastmod>2026-03-06</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/umbrella-apps-when-and-why/</loc>
+        <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/umbrella-architecture-at-scale/</loc>
+        <lastmod>2026-03-03</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/virustotal-intelligence-integration/</loc>
+        <lastmod>2026-02-26</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/whois-domain-intelligence/</loc>
+        <lastmod>2026-02-28</lastmod>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/blog/zero-trust-elixir-seal-doctrine/</loc>
+        <lastmod>2026-03-05</lastmod>
     </url>
     <url>
         <loc>https://prismatic-reality.com/capabilities/</loc>
@@ -5989,6 +6455,9 @@
         <loc>https://prismatic-reality.com/glossary/caching/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality.com/glossary/calibration-loop/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality.com/glossary/canary-release/</loc>
     </url>
     <url>
@@ -6401,6 +6870,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality.com/glossary/database/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/glossary/decision-core/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality.com/glossary/decision-making-hierarchy/</loc>
@@ -6843,6 +7315,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality.com/glossary/human-intervention/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality.com/glossary/hypothesis-generation/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality.com/glossary/idempotency/</loc>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'prismatic-glossary-v1';
+const CACHE_NAME = 'prismatic-glossary-v2';
 const STATIC_CACHE_URLS = [
     '/css/tailwind.css',
     '/css/glossary-optimized.css',
@@ -50,8 +50,13 @@ self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
 
-    // Only handle same-origin requests
-    if (url.origin !== self.location.origin) {
+    // Only handle same-origin GET requests (Cache API doesn't support POST)
+    if (url.origin !== self.location.origin || request.method !== 'GET') {
+        return;
+    }
+
+    // Skip LiveView websocket and Phoenix internal paths
+    if (url.pathname.startsWith('/live/') || url.pathname.startsWith('/phoenix/')) {
         return;
     }
 
