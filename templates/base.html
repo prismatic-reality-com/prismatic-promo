@@ -836,6 +836,7 @@
             document.addEventListener('keydown', handleKeyDown);
 
             function handleMouseEnter(e) {
+                if (!(e.target instanceof Element)) return;
                 const link = e.target.closest('[data-glossary-hover]');
                 if (!link) return;
 
@@ -850,6 +851,7 @@
             }
 
             function handleMouseLeave(e) {
+                if (!(e.target instanceof Element)) return;
                 const link = e.target.closest('[data-glossary-hover]');
                 if (!link) return;
 
