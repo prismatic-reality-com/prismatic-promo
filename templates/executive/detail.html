@@ -10,11 +10,11 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <nav class="flex items-center text-sm text-gray-400 mb-8">
-                <a href="/" class="hover:text-white">Home</a>
+                <a href="{{ config.base_url | safe }}/" class="hover:text-white">Home</a>
                 <svg aria-hidden="true" class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <a href="/executive/" class="hover:text-white">Executive</a>
+                <a href="{{ config.base_url | safe }}/executive/" class="hover:text-white">Executive</a>
                 <svg aria-hidden="true" class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
@@ -86,11 +86,11 @@
                                 Launch ROI Calculator
                             </a>
                             {% else %}
-                            <a href="/executive/roi-calculator/" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-300">
+                            <a href="{{ config.base_url | safe }}/executive/roi-calculator/" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-300">
                                 Calculate Your ROI
                             </a>
                             {% endif %}
-                            <a href="/contact/" class="bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-300">
+                            <a href="{{ config.base_url | safe }}/contact/" class="bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-300">
                                 Schedule Executive Briefing
                             </a>
                         </div>

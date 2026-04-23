@@ -9,7 +9,7 @@
         {# Primary Navigation Group #}
         <ul class="space-y-1 font-medium">
             <li>
-                <a href="/"
+                <a href="{{ config.base_url | safe }}/"
                     class="flex items-center p-2 rounded-lg {% if s == 'home' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                     <svg aria-hidden="true" class="w-5 h-5 {% if s == 'home' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
@@ -24,7 +24,7 @@
             <p class="px-2 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Executive</p>
             <ul class="space-y-1">
                 <li>
-                    <a href="/executive/"
+                    <a href="{{ config.base_url | safe }}/executive/"
                         class="flex items-center p-2 rounded-lg {% if s == 'executive' %}bg-purple-900/30 text-purple-300 border border-purple-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'executive' %}text-purple-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dd/"
+                    <a href="{{ config.base_url | safe }}/dd/"
                         class="flex items-center p-2 rounded-lg {% if s == 'dd' %}bg-emerald-900/30 text-emerald-300 border border-emerald-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'dd' %}text-emerald-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/blog/"
+                    <a href="{{ config.base_url | safe }}/blog/"
                         class="flex items-center p-2 rounded-lg {% if s == 'blog' %}bg-green-900/30 text-green-300 border border-green-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'blog' %}text-green-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
@@ -58,7 +58,7 @@
             <p class="px-2 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Intelligence</p>
             <ul class="space-y-1">
                 <li>
-                    <a href="/osint/"
+                    <a href="{{ config.base_url | safe }}/osint/"
                         class="flex items-center justify-between p-2 rounded-lg {% if s == 'osint' %}bg-amber-900/30 text-amber-300 border border-amber-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <div class="flex items-center">
                             <svg aria-hidden="true" class="w-5 h-5 {% if s == 'osint' %}text-amber-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/lab/"
+                    <a href="{{ config.base_url | safe }}/lab/"
                         class="flex items-center p-2 rounded-lg {% if s == 'lab' %}bg-teal-900/30 text-teal-300 border border-teal-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'lab' %}text-teal-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/academy/"
+                    <a href="{{ config.base_url | safe }}/academy/"
                         class="flex items-center p-2 rounded-lg {% if s == 'academy' %}bg-blue-900/30 text-blue-300 border border-blue-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'academy' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -95,7 +95,7 @@
             <p class="px-2 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Developers</p>
             <ul class="space-y-1">
                 <li>
-                    <a href="/developers/"
+                    <a href="{{ config.base_url | safe }}/developers/"
                         class="flex items-center p-2 rounded-lg {% if s == 'developers' %}bg-blue-900/30 text-blue-300 border border-blue-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'developers' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
@@ -104,7 +104,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/developers/sdk/"
+                    <a href="{{ config.base_url | safe }}/developers/sdk/"
                         class="flex items-center p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 text-gray-500 group-hover:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
@@ -113,7 +113,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/api/"
+                    <a href="{{ config.base_url | safe }}/api/"
                         class="flex items-center p-2 rounded-lg {% if s == 'api' %}bg-cyan-900/30 text-cyan-300 border border-cyan-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'api' %}text-cyan-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -129,7 +129,7 @@
             <p class="px-2 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Platform</p>
             <ul class="space-y-1">
                 <li>
-                    <a href="/agents/"
+                    <a href="{{ config.base_url | safe }}/agents/"
                         class="flex items-center justify-between p-2 rounded-lg {% if s == 'agents' %}bg-indigo-900/30 text-indigo-300 border border-indigo-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <div class="flex items-center">
                             <svg aria-hidden="true" class="w-5 h-5 {% if s == 'agents' %}text-indigo-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/apps/"
+                    <a href="{{ config.base_url | safe }}/apps/"
                         class="flex items-center justify-between p-2 rounded-lg {% if s == 'apps' %}bg-purple-900/30 text-purple-300 border border-purple-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <div class="flex items-center">
                             <svg aria-hidden="true" class="w-5 h-5 {% if s == 'apps' %}text-purple-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +153,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/commands/"
+                    <a href="{{ config.base_url | safe }}/commands/"
                         class="flex items-center justify-between p-2 rounded-lg {% if s == 'commands' %}bg-emerald-900/30 text-emerald-300 border border-emerald-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <div class="flex items-center">
                             <svg aria-hidden="true" class="w-5 h-5 {% if s == 'commands' %}text-emerald-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +165,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/capabilities/"
+                    <a href="{{ config.base_url | safe }}/capabilities/"
                         class="flex items-center p-2 rounded-lg {% if s == 'capabilities' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'capabilities' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -174,7 +174,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/architecture/"
+                    <a href="{{ config.base_url | safe }}/architecture/"
                         class="flex items-center p-2 rounded-lg {% if s == 'architecture' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'architecture' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
@@ -183,7 +183,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/technologies/"
+                    <a href="{{ config.base_url | safe }}/technologies/"
                         class="flex items-center p-2 rounded-lg {% if s == 'technologies' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'technologies' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -192,7 +192,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/teams/"
+                    <a href="{{ config.base_url | safe }}/teams/"
                         class="flex items-center p-2 rounded-lg {% if s == 'teams' %}bg-red-900/30 text-red-300 border border-red-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'teams' %}text-red-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -208,7 +208,7 @@
             <p class="px-2 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Reference</p>
             <ul class="space-y-1">
                 <li>
-                    <a href="/glossary/"
+                    <a href="{{ config.base_url | safe }}/glossary/"
                         class="flex items-center p-2 rounded-lg {% if s == 'glossary' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'glossary' %}text-pink-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -217,7 +217,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/registry/"
+                    <a href="{{ config.base_url | safe }}/registry/"
                         class="flex items-center p-2 rounded-lg {% if s == 'registry' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'registry' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
@@ -226,7 +226,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/faq/"
+                    <a href="{{ config.base_url | safe }}/faq/"
                         class="flex items-center p-2 rounded-lg {% if s == 'faq' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'faq' %}text-blue-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -241,7 +241,7 @@
         <div class="pt-4 mt-4 border-t border-gray-800">
             <ul class="space-y-1">
                 <li>
-                    <a href="/about/author/"
+                    <a href="{{ config.base_url | safe }}/about/author/"
                         class="flex items-center p-2 rounded-lg {% if s == 'about' %}bg-yellow-900/30 text-yellow-300 border border-yellow-500/20{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors group">
                         <svg aria-hidden="true" class="w-5 h-5 {% if s == 'about' %}text-yellow-400{% else %}text-gray-500 group-hover:text-gray-400{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>

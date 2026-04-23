@@ -28,14 +28,14 @@
                 </p>
 
                 <div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 mb-10">
-                    <a href="/executive/"
+                    <a href="{{ config.base_url | safe }}/executive/"
                         class="inline-flex items-center justify-center px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-gray-950 bg-white hover:bg-gray-100 dark:text-gray-950 dark:bg-white dark:hover:bg-gray-100 transition-all duration-200 uppercase tracking-wider">
                         Request Assessment
                         <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
                     </a>
-                    <a href="/executive/security-dashboard/"
+                    <a href="{{ config.base_url | safe }}/executive/security-dashboard/"
                         class="inline-flex items-center justify-center px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-gray-300 border border-white/20 hover:bg-white/5 hover:text-white hover:border-white transition-all duration-200 uppercase tracking-wider">
                         See the System
                     </a>
@@ -727,7 +727,7 @@
                         Board-ready PDF report
                     </li>
                 </ul>
-                <a href="/executive/"
+                <a href="{{ config.base_url | safe }}/executive/"
                     class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-gray-950 rounded-lg bg-white hover:bg-gray-100 transition-all">
                     Request Assessment
                     <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -764,7 +764,7 @@
                         API access + workspace isolation
                     </li>
                 </ul>
-                <a href="/executive/roi-calculator/"
+                <a href="{{ config.base_url | safe }}/executive/roi-calculator/"
                     class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-gray-300 border border-white/10 rounded-lg hover:bg-white/5 hover:text-white transition-all">
                     Calculate ROI
                     <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -776,19 +776,19 @@
 
         <!-- Bottom links -->
         <div class="mt-12 flex flex-wrap justify-center gap-6 text-gray-600 text-xs uppercase tracking-wider">
-            <a href="/executive/" class="hover:text-gray-400 transition-colors">Executive Overview</a>
+            <a href="{{ config.base_url | safe }}/executive/" class="hover:text-gray-400 transition-colors">Executive Overview</a>
             <span class="text-gray-800">|</span>
-            <a href="/executive/competitive-analysis/" class="hover:text-gray-400 transition-colors">Competitive Analysis</a>
+            <a href="{{ config.base_url | safe }}/executive/competitive-analysis/" class="hover:text-gray-400 transition-colors">Competitive Analysis</a>
             <span class="text-gray-800">|</span>
-            <a href="/executive/case-studies/" class="hover:text-gray-400 transition-colors">Case Studies</a>
+            <a href="{{ config.base_url | safe }}/executive/case-studies/" class="hover:text-gray-400 transition-colors">Case Studies</a>
             <span class="text-gray-800">|</span>
-            <a href="/executive/compliance-automation/" class="hover:text-gray-400 transition-colors">Compliance</a>
+            <a href="{{ config.base_url | safe }}/executive/compliance-automation/" class="hover:text-gray-400 transition-colors">Compliance</a>
             <span class="text-gray-800">|</span>
-            <a href="/blog/" class="hover:text-gray-400 transition-colors">Blog</a>
+            <a href="{{ config.base_url | safe }}/blog/" class="hover:text-gray-400 transition-colors">Blog</a>
             <span class="text-gray-800">|</span>
-            <a href="/developers/" class="hover:text-gray-400 transition-colors">Developers</a>
+            <a href="{{ config.base_url | safe }}/developers/" class="hover:text-gray-400 transition-colors">Developers</a>
             <span class="text-gray-800">|</span>
-            <a href="/architecture/" class="hover:text-gray-400 transition-colors">Architecture</a>
+            <a href="{{ config.base_url | safe }}/architecture/" class="hover:text-gray-400 transition-colors">Architecture</a>
         </div>
     </div>
 </section>
