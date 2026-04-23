@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% import "macros/sidebar.html" as sidebar %}
+{% import "macros/breadcrumbs.html" as breadcrumbs %}
+
+{% block title %}Applications - Prismatic Platform{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gray-900 py-16 lg:py-20 border-b border-amber-800/50">
+    <div class="max-w-screen-xl px-4 mx-auto">
+                {{ breadcrumbs::section(section_title=section.title) }}
+<div class="mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold tracking-widest text-amber-400 bg-amber-900/50 rounded-full uppercase border border-amber-700/50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+                25 Application Domains
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6">
+                {{ section.title }}
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+                {{ section.description }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content Section -->
+<section class="bg-gray-900 py-12 lg:py-16" x-data="applicationsRegistry()">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="grid gap-8 lg:grid-cols-4">
+            <!-- Main Content (3/4) -->
+            <div class="lg:col-span-3">
+
+                <!-- Stats Summary -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <div class="p-4 bg-amber-900/20 rounded-xl border border-amber-800 text-center">
+                        <div class="text-3xl font-black text-amber-400">{{ section.subsections | length }}</div>
+                        <div class="text-sm text-gray-400 mt-1">Total Categories</div>
+                    </div>
+                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/10 text-center">
+                        <div class="text-3xl font-black text-gray-400">625</div>
+                        <div class="text-sm text-gray-400 mt-1">Total Applications</div>
+                    </div>
+                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/10 text-center">
+                        <div class="text-3xl font-black text-gray-400">25</div>
+                        <div class="text-sm text-gray-400 mt-1">Domains</div>
+                    </div>
+                </div>
+
+                <p class="text-lg text-gray-400 max-w-3xl leading-relaxed mb-8">{{ section.pages | length }}+ applications across 25 industry domains, from cybersecurity and financial intelligence to healthcare and education.</p>
+
+                <!-- Controls Bar -->
+                <div class="mb-8 p-4 bg-gray-800 rounded-xl border border-gray-700">
+                    <div class="flex flex-col lg:flex-row gap-4">
+                        <!-- Search -->
+                        <div class="flex-1">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                    </svg>
+                                </div>
+                                <input type="text"
+                                       x-model="searchTerm"
+                                       class="block w-full pl-10 pr-4 py-2.5 text-sm text-white bg-gray-700 border border-gray-600 rounded-lg focus:ring-amber-500/30 focus:border-amber-500/50"
+                                       placeholder="Search application categories...">
+                            </div>
+                        </div>
+
+                        <!-- Sort -->
+                        <div class="w-full lg:w-48">
+                            <select x-model="sortField"
+                                    class="block w-full py-2.5 px-4 text-sm text-white bg-gray-700 border border-gray-600 rounded-lg focus:ring-amber-500/30 focus:border-amber-500/50">
+                                <option value="title">Sort: Name</option>
+                                <option value="app_count">Sort: App Count</option>
+                                <option value="weight">Sort: Priority</option>
+                            </select>
+                        </div>
+
+                        <!-- Reset -->
+                        <button @click="searchTerm = ''; sortField = 'title'"
+                                class="px-4 py-2.5 text-sm font-medium text-gray-300 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 transition-colors">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="mt-3 text-sm text-gray-400">
+                        Showing <span class="font-semibold text-amber-400" x-text="filteredItems.length"></span> of <span class="font-semibold" x-text="items.length"></span> categories
+                    </div>
+                </div>
+
+                <!-- Card Grid -->
+                <div class="grid gap-6 md:grid-cols-2">
+                    <template x-for="item in filteredItems" :key="item.title">
+                        <a :href="item.url" class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-xl hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-gray-700 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                                    <span x-text="item.app_count"></span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors" x-text="item.title"></h3>
+                            </div>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3" x-text="item.description"></p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span class="px-2 py-1 bg-amber-900/30 text-amber-300 rounded font-medium" x-text="item.app_count + ' applications'"></span>
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-amber-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </template>
+                </div>
+
+                <!-- Empty State -->
+                <div x-show="filteredItems.length === 0" class="text-center py-16">
+                    <svg class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    <p class="text-gray-400 text-lg">No application categories match your search.</p>
+                </div>
+
+                <!-- Section Content -->
+                <div class="mt-10 prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+
+            <!-- Right Sidebar (1/4) -->
+            <div class="hidden lg:block sticky top-4 space-y-6 self-start">
+                <!-- Section Topics Card -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">App Categories</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4">
+                        <div class="max-h-[400px] overflow-y-auto space-y-1 pr-1 scrollbar-thin">
+                            <template x-for="item in items" :key="item.title">
+                                <a :href="item.url" class="flex items-center justify-between gap-2 px-3 py-1.5 text-xs text-gray-400 hover:text-amber-400 hover:bg-gray-700/50 rounded-lg transition-colors">
+                                    <span class="truncate flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500/50 flex-shrink-0"></span>
+                                        <span x-text="item.title"></span>
+                                    </span>
+                                    <span class="flex-shrink-0 px-1.5 py-0.5 text-xs rounded bg-white/5" x-text="item.app_count"></span>
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Card -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Statistics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Categories</span>
+                            <span class="font-bold text-white" x-text="items.length">0</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Total Apps</span>
+                            <span class="font-bold text-white">625</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Domains</span>
+                            <span class="font-bold text-white">25</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Avg per Category</span>
+                            <span class="font-bold text-amber-400" x-text="items.length ? Math.round(items.reduce((s,i) => s + i.app_count, 0) / items.length) : 0">0</span>
+                        </div>
+                        <div class="pt-2 border-t border-gray-700">
+                            <div class="flex justify-between items-center text-sm mb-1">
+                                <span class="text-gray-400">Elixir Files</span>
+                                <span class="font-bold text-white">6,652</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm mb-1">
+                                <span class="text-gray-400">Total LOC</span>
+                                <span class="font-bold text-white">~2.8M</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-400">Quality Score</span>
+                                <span class="font-bold text-emerald-400">100/100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{ sidebar::full_sidebar(current_path=current_path) }}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script id="applications-data" type="application/json">
+[
+    {% for subsection_path in section.subsections %}
+    {% set subsec = get_section(path=subsection_path) %}
+    {
+        "title": {{ subsec.title | json_encode | safe }},
+        "url": {{ subsec.permalink | json_encode | safe }},
+        "description": {{ subsec.description | default(value='') | truncate(length=150) | json_encode | safe }},
+        "app_count": {{ subsec.pages | length }},
+        "weight": {{ subsec.extra.navigation_weight | default(value=0) }}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+]
+</script>
+<script>
+function applicationsRegistry() {
+    return {
+        searchTerm: '',
+        sortField: 'title',
+        sortDesc: false,
+        items: JSON.parse(document.getElementById('applications-data').textContent),
+
+        get filteredItems() {
+            let result = [...this.items];
+            if (this.searchTerm) {
+                const q = this.searchTerm.toLowerCase();
+                result = result.filter(i =>
+                    i.title.toLowerCase().includes(q) ||
+                    i.description.toLowerCase().includes(q)
+                );
+            }
+            result.sort((a, b) => {
+                let av = a[this.sortField], bv = b[this.sortField];
+                if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+                if (this.sortDesc) return bv > av ? 1 : bv < av ? -1 : 0;
+                return av > bv ? 1 : av < bv ? -1 : 0;
+            });
+            return result;
+        }
+    };
+}
+</script>
+{% endblock content %}

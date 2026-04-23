@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% import "macros/sidebar.html" as sidebar %}
+{% import "macros/breadcrumbs.html" as breadcrumbs %}
+
+{% block title %}API Reference - Prismatic Platform{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Auto-introspecting REST gateway with OpenAPI 3.0 documentation">
+<meta property="og:title" content="API Reference - Prismatic Platform">
+<meta property="og:description" content="Auto-introspecting REST gateway with OpenAPI 3.0 documentation">
+{% endblock meta %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-16 lg:py-20 border-b border-white/5">
+    <div class="max-w-screen-xl px-4 mx-auto">
+                {{ breadcrumbs::section(section_title=section.title) }}
+<div class="mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold tracking-widest text-cyan-400 bg-cyan-900/30 rounded-full uppercase border border-cyan-700/30">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                REST Gateway
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+                {{ section.title }}
+            </h1>
+            <p class="text-lg text-gray-400 max-w-3xl leading-relaxed">
+                Auto-introspecting REST API gateway with OpenAPI 3.0 documentation, generic dispatch, and Swagger UI.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% if section.pages %}
+<section class="py-12 lg:py-16" x-data="apiFilter()">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="grid gap-8 lg:grid-cols-4">
+            <!-- Main Content (3/4) -->
+            <div class="lg:col-span-3">
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {% for page in section.pages %}
+                    <a href="{{ page.permalink }}"
+                       class="group p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-cyan-700/50 hover:bg-gray-800/80 transition-all duration-200"
+                       x-show="matchesSearch('{{ page.title | lower }}', '{{ page.extra.description | default(value='') | lower }}')"
+                       x-transition:enter="transition ease-out duration-200"
+                       x-transition:enter-start="opacity-0"
+                       x-transition:enter-end="opacity-100">
+                        <div class="flex items-start justify-between mb-2">
+                            <h3 class="text-base font-semibold text-white group-hover:text-cyan-400 transition-colors font-mono">{{ page.title }}</h3>
+                            {% if page.extra.method %}
+                            <span class="shrink-0 ml-2 px-2 py-0.5 text-xs font-bold font-mono rounded
+                                {% if page.extra.method == 'GET' %}bg-green-900/50 text-green-400
+                                {% elif page.extra.method == 'POST' %}bg-blue-900/50 text-blue-400
+                                {% elif page.extra.method == 'PUT' %}bg-amber-900/50 text-amber-400
+                                {% elif page.extra.method == 'DELETE' %}bg-red-900/50 text-red-400
+                                {% elif page.extra.method == 'PATCH' %}bg-purple-900/50 text-purple-400
+                                {% else %}bg-gray-700 text-gray-300
+                                {% endif %}">{{ page.extra.method }}</span>
+                            {% endif %}
+                        </div>
+                        {% if page.extra.description %}
+                        <p class="text-sm text-gray-400 leading-relaxed line-clamp-2">{{ page.extra.description }}</p>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <!-- Section Content -->
+                <div class="mt-10 prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+
+            <!-- Right Sidebar (1/4) -->
+            <div class="space-y-6">
+                <!-- Card 1: Section Topics -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Section Topics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4">
+                        <div class="mb-3">
+                            <input type="text" x-model="search" placeholder="Filter endpoints..."
+                                   class="block w-full pl-3 pr-4 py-2 text-xs text-white border border-gray-600 rounded-lg bg-gray-900 focus:ring-cyan-500 focus:border-cyan-500 placeholder-gray-500 font-mono">
+                        </div>
+                        <div class="max-h-[400px] overflow-y-auto space-y-1 pr-1 scrollbar-thin">
+                            {% for page in section.pages %}
+                            <a href="{{ page.permalink }}" class="block px-3 py-1.5 text-xs text-gray-400 hover:text-cyan-400 hover:bg-gray-700/50 rounded-lg transition-colors truncate">
+                                {{ page.title }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Section Statistics -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Section Statistics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Total Endpoints</span>
+                            <span class="font-bold text-white">{{ section.pages | length }}</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Specification</span>
+                            <span class="font-bold text-cyan-400">OpenAPI 3.0</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Gateway Port</span>
+                            <span class="font-bold text-gray-300 font-mono">4004</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Auto-Discovery</span>
+                            <span class="font-bold text-emerald-400">Enabled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Quick Navigation -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Quick Navigation</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-1">
+                        <a href="{{ config.base_url }}/apps/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Applications</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">88 umbrella apps whose facades power API endpoints</p>
+                        </a>
+                        <a href="{{ config.base_url }}/commands/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Commands</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">217 slash commands callable through the REST gateway</p>
+                        </a>
+                        <a href="{{ config.base_url }}/technologies/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Technologies</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">Phoenix, OpenApiSpex, and the stack behind the gateway</p>
+                        </a>
+                        <a href="{{ config.base_url }}/architecture/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Architecture</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">System design and auto-introspection architecture patterns</p>
+                        </a>
+                        <a href="{{ config.base_url }}/lab/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Lab</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">Prototype and test new endpoints in the sandbox</p>
+                        </a>
+                    </div>
+                </div>
+
+                {{ sidebar::full_sidebar(current_path=current_path) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="py-12 border-t border-white/5">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="{{ config.base_url }}/lab/" class="p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-emerald-700/50 transition-all">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">API &rarr; Lab</p>
+                <p class="text-sm text-gray-400">Prototype new endpoints in the Lab sandbox</p>
+            </a>
+            <a href="{{ config.base_url }}/academy/" class="p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-700/50 transition-all">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">API &rarr; Academy</p>
+                <p class="text-sm text-gray-400">Learn the concepts behind each endpoint</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+function apiFilter() {
+    return {
+        search: '',
+        matchesSearch: function(title, description) {
+            if (!this.search) return true;
+            var s = this.search.toLowerCase();
+            return title.includes(s) || description.includes(s);
+        }
+    };
+}
+</script>
+{% endblock content %}

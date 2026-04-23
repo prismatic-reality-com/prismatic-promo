@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-950">
+    <!-- Breadcrumb -->
+    <section class="py-6 border-b border-gray-800">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li>
+                        <div>
+                            <a href="/" class="text-gray-400 hover:text-gray-300 transition-colors">
+                                <svg class="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="sr-only">Home</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 flex-shrink-0 text-gray-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                            </svg>
+                            <a href="/developers/" class="ml-4 text-sm font-medium text-gray-400 hover:text-gray-300 transition-colors">Developers</a>
+                        </div>
+                    </li>
+                    {% if page.ancestors %}
+                    {% set parent_section = get_section(path=page.ancestors | last) %}
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 flex-shrink-0 text-gray-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                            </svg>
+                            <a href="{{ parent_section.permalink }}" class="ml-4 text-sm font-medium text-gray-400 hover:text-gray-300 transition-colors">{{ parent_section.title }}</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 flex-shrink-0 text-gray-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-4 text-sm font-medium text-gray-300">{{ page.title }}</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Article Header -->
+    <header class="py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-4xl text-center">
+                {% if page.extra.image %}
+                <div class="mb-8">
+                    <img src="{{ page.extra.image }}" alt="{{ page.extra.image_alt | default(value=page.title) }}" class="mx-auto h-32 w-32 rounded-lg shadow-2xl">
+                </div>
+                {% endif %}
+
+                <div class="mb-6 flex justify-center">
+                    <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-300 ring-1 ring-white/10">
+                        {% if page.extra.academic_tier %}{{ page.extra.academic_tier | title }}{% endif %}
+                        {% if page.extra.reading_time %} • {{ page.extra.reading_time }} read{% endif %}
+                        {% if page.extra.difficulty %} • {{ page.extra.difficulty | title }}{% endif %}
+                    </div>
+                </div>
+
+                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    {{ page.title }}
+                </h1>
+
+                {% if page.description %}
+                <p class="mt-6 text-xl leading-8 text-gray-300">
+                    {{ page.description }}
+                </p>
+                {% endif %}
+
+                <!-- Metadata -->
+                {% if page.extra.tech_stack or page.extra.sdk_version or page.extra.license %}
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    {% if page.extra.sdk_version %}
+                    <span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+                        v{{ page.extra.sdk_version }}
+                    </span>
+                    {% endif %}
+                    {% if page.extra.license %}
+                    <span class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                        {{ page.extra.license }} License
+                    </span>
+                    {% endif %}
+                    {% if page.extra.tech_stack %}
+                        {% for tech in page.extra.tech_stack %}
+                        <span class="inline-flex items-center rounded-full bg-gray-50 px-3 py-1 text-sm font-medium text-gray-700 ring-1 ring-inset ring-gray-600/20">
+                            {{ tech }}
+                        </span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Action buttons -->
+                <div class="mt-10 flex items-center justify-center gap-x-6">
+                    {% if page.extra.repository %}
+                    <a href="{{ page.extra.repository }}" class="rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors">
+                        View on GitHub
+                    </a>
+                    {% endif %}
+
+                    {% if page.extra.npm_package %}
+                    <a href="//www.npmjs.com/package/{{ page.extra.npm_package }}" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold leading-6 text-gray-300 hover:text-white transition-colors">
+                        npm install <span aria-hidden="true">→</span>
+                    </a>
+                    {% elif page.extra.pypi_package %}
+                    <a href="//pypi.org/project/{{ page.extra.pypi_package }}/" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold leading-6 text-gray-300 hover:text-white transition-colors">
+                        pip install <span aria-hidden="true">→</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pb-16 sm:pb-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+
+                <!-- Sidebar -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-24 space-y-8">
+
+                        <!-- Table of Contents -->
+                        <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">Table of Contents</h3>
+                            <nav class="space-y-2" id="table-of-contents">
+                                <!-- Will be populated by JavaScript -->
+                            </nav>
+                        </div>
+
+                        <!-- Quick Links -->
+                        {% if page.extra.repository or page.extra.npm_package or page.extra.storybook_url %}
+                        <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                            <div class="space-y-3">
+                                {% if page.extra.repository %}
+                                <a href="{{ page.extra.repository }}" class="flex items-center text-sm text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    GitHub Repository
+                                </a>
+                                {% endif %}
+
+                                {% if page.extra.npm_package %}
+                                <a href="//www.npmjs.com/package/{{ page.extra.npm_package }}" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M0 7v10l6 0v1l4 0v-1l14 0V7H0zM12 16l-2 0V9l2 0V16zM22 16l-2 0V9l2 0V16z"/>
+                                    </svg>
+                                    npm Package
+                                </a>
+                                {% endif %}
+
+                                {% if page.extra.pypi_package %}
+                                <a href="//pypi.org/project/{{ page.extra.pypi_package }}/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.1 0C5.4 0 0 5.4 0 12.1s5.4 12.1 12.1 12.1 12.1-5.4 12.1-12.1S18.8 0 12.1 0zM3.2 12.1c0-4.9 4-8.9 8.9-8.9s8.9 4 8.9 8.9-4 8.9-8.9 8.9-8.9-4-8.9-8.9z"/>
+                                        <path d="M14.2 6.4h-4.3v11.3h4.3c3.1 0 5.7-2.5 5.7-5.7s-2.5-5.6-5.7-5.6zm0 8.9h-2v-6.6h2c1.8 0 3.3 1.5 3.3 3.3s-1.5 3.3-3.3 3.3z"/>
+                                    </svg>
+                                    PyPI Package
+                                </a>
+                                {% endif %}
+
+                                {% if page.extra.storybook_url %}
+                                <a href="{{ page.extra.storybook_url }}" class="flex items-center text-sm text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M16.71.243l-.12 2.71a.18.18 0 00.29.15l1.06-.8.9.7a.18.18 0 00.28-.14l-.13-2.63 1.47-1.45a.18.18 0 00-.13-.31H18.1l-.72-1.46a.18.18 0 00-.32 0l-.72 1.46H14.2a.18.18 0 00-.13.31l1.47 1.45zM13.64 4.08L7.05 3.37a.18.18 0 00-.2.18v17.27c0 .12.11.21.23.19l6.4-.71c.17-.02.3-.16.3-.33V4.41c0-.18-.14-.33-.32-.33z"/>
+                                    </svg>
+                                    Storybook
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Meta Information -->
+                        {% if page.extra.target_audience or page.extra.learning_objectives %}
+                        <div class="bg-gray-900 border border-gray-700 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">Learning Info</h3>
+
+                            {% if page.extra.target_audience %}
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-300 mb-2">Target Audience</h4>
+                                <div class="space-y-1">
+                                    {% for audience in page.extra.target_audience %}
+                                    <span class="inline-block text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">
+                                        {{ audience | replace(from="_", to=" ") | title }}
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if page.extra.learning_objectives %}
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-300 mb-2">Learning Objectives</h4>
+                                <ul class="space-y-1 text-xs text-gray-400">
+                                    {% for objective in page.extra.learning_objectives %}
+                                    <li>• {{ objective | replace(from="_", to=" ") | title }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Article Content -->
+                <div class="lg:col-span-3">
+                    <article class="prose prose-invert prose-lg max-w-none">
+                        {{ page.content | safe }}
+                    </article>
+
+                    <!-- Footer Navigation -->
+                    {% if page.extra.see_also %}
+                    <div class="mt-16 border-t border-gray-800 pt-16">
+                        <h3 class="text-xl font-bold text-white mb-6">Related Documentation</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {% for related in page.extra.see_also %}
+                            <a href="/developers/{{ related }}/" class="block p-4 bg-gray-900 border border-gray-700 rounded-lg hover:border-blue-500/50 transition-colors">
+                                <div class="font-medium text-white capitalize">{{ related | replace(from="_", to=" ") | replace(from="-", to=" ") }}</div>
+                                <div class="text-sm text-gray-400 mt-1">Learn more about {{ related | replace(from="_", to=" ") | replace(from="-", to=" ") }}</div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Table of Contents Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Generate table of contents from h2 and h3 headings
+    const headings = document.querySelectorAll('article h2, article h3');
+    const tocContainer = document.getElementById('table-of-contents');
+
+    if (headings.length > 0 && tocContainer) {
+        headings.forEach((heading, index) => {
+            const id = heading.textContent.toLowerCase()
+                .replace(/[^\w\s]/g, '')
+                .replace(/\s+/g, '-');
+
+            heading.id = id;
+
+            const tocItem = document.createElement('a');
+            tocItem.href = '#' + id;
+            tocItem.textContent = heading.textContent;
+            tocItem.className = heading.tagName === 'H2'
+                ? 'block text-sm text-gray-300 hover:text-white transition-colors py-1'
+                : 'block text-sm text-gray-400 hover:text-gray-300 transition-colors py-1 pl-4';
+
+            tocContainer.appendChild(tocItem);
+        });
+    } else if (tocContainer) {
+        tocContainer.parentElement.style.display = 'none';
+    }
+});
+</script>
+{% endblock %}

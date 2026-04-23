@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% import "macros/sidebar.html" as sidebar %}
+{% import "macros/breadcrumbs.html" as breadcrumbs %}
+
+{% block title %}Due Diligence Intelligence - Prismatic Platform{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{{ section.description }}">
+<meta property="og:title" content="Due Diligence Intelligence - Prismatic Platform">
+<meta property="og:description" content="{{ section.description }}">
+<meta property="og:image" content="{{ config.base_url }}/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Prismatic Platform">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Due Diligence Intelligence - Prismatic Platform">
+<meta name="twitter:description" content="{{ section.description }}">
+<meta name="twitter:image" content="{{ config.base_url }}/images/twitter-card.png">
+<meta name="twitter:creator" content="@korczis">
+{% endblock meta %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-16 lg:py-20 border-b border-white/5">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        {{ breadcrumbs::section(section_title=section.title) }}
+        <div class="mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold tracking-widest text-emerald-400 bg-emerald-900/30 rounded-full uppercase border border-emerald-700/30">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                Due Diligence Platform
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+                {{ section.title }}
+            </h1>
+            <p class="text-lg text-gray-400 max-w-3xl leading-relaxed">Comprehensive due diligence intelligence platform transforming raw OSINT into actionable investigative insights through {{ section.pages | length }} specialized topics.</p>
+        </div>
+
+        <!-- Key Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-10 max-w-4xl mx-auto">
+            <div class="px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 text-center">
+                <div class="text-2xl font-bold text-emerald-400">122</div>
+                <div class="text-xs text-gray-400 mt-1">OSINT Sources</div>
+            </div>
+            <div class="px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 text-center">
+                <div class="text-2xl font-bold text-emerald-400">30+</div>
+                <div class="text-xs text-gray-400 mt-1">Czech Registries</div>
+            </div>
+            <div class="px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 text-center">
+                <div class="text-2xl font-bold text-emerald-400">3x</div>
+                <div class="text-xs text-gray-400 mt-1">Cross-Validation</div>
+            </div>
+            <div class="px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 text-center">
+                <div class="text-2xl font-bold text-emerald-400">A-F</div>
+                <div class="text-xs text-gray-400 mt-1">Risk Grades</div>
+            </div>
+            <div class="px-4 py-3 bg-gray-800/50 rounded-lg border border-gray-700 text-center">
+                <div class="text-2xl font-bold text-emerald-400">{{ section.pages | length }}</div>
+                <div class="text-xs text-gray-400 mt-1">Topics</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if section.pages %}
+<section class="py-12 lg:py-16" x-data="ddFilter()">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="grid gap-8 lg:grid-cols-4">
+            <!-- Main Content (3/4) -->
+            <div class="lg:col-span-3">
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {% for page in section.pages %}
+                    <a href="{{ page.permalink }}"
+                       class="group p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-emerald-700/50 hover:bg-gray-800/80 transition-all duration-200"
+                       x-show="matchesSearch('{{ page.title | lower }}', '{{ page.description | default(value='') | lower }}')"
+                       x-transition:enter="transition ease-out duration-200"
+                       x-transition:enter-start="opacity-0"
+                       x-transition:enter-end="opacity-100">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="text-base font-semibold text-white group-hover:text-emerald-400 transition-colors line-clamp-2 pr-2">{{ page.title }}</h3>
+                            <div class="shrink-0 flex flex-col gap-1 ml-2">
+                                {% if page.extra.difficulty %}
+                                <span class="px-2 py-0.5 text-xs font-medium rounded text-center
+                                    {% if page.extra.difficulty == 'beginner' %}bg-green-900/50 text-green-400
+                                    {% elif page.extra.difficulty == 'intermediate' %}bg-blue-900/50 text-blue-400
+                                    {% elif page.extra.difficulty == 'advanced' %}bg-purple-900/50 text-purple-400
+                                    {% else %}bg-gray-700 text-gray-300
+                                    {% endif %}">{{ page.extra.difficulty }}</span>
+                                {% endif %}
+                                {% if page.extra.reading_time %}
+                                <span class="px-2 py-0.5 text-xs text-gray-500 bg-gray-900/50 rounded text-center">{{ page.extra.reading_time }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if page.description %}
+                        <p class="text-sm text-gray-400 leading-relaxed line-clamp-3">{{ page.description }}</p>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <!-- Section Content -->
+                <div class="mt-10 prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+
+            <!-- Right Sidebar (1/4) -->
+            <div class="hidden lg:block sticky top-4 space-y-6 self-start">
+                <!-- Section Topics -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">DD Topics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4">
+                        <div class="mb-3">
+                            <input type="text" x-model="search" placeholder="Filter topics..."
+                                   class="block w-full pl-3 pr-4 py-2 text-xs text-white border border-gray-600 rounded-lg bg-gray-900 focus:ring-emerald-500 focus:border-emerald-500 placeholder-gray-500">
+                        </div>
+                        <div class="max-h-[400px] overflow-y-auto space-y-1 pr-1 scrollbar-thin">
+                            {% for page in section.pages %}
+                            <a href="{{ page.permalink }}" class="block px-3 py-1.5 text-xs text-gray-400 hover:text-emerald-400 hover:bg-gray-700/50 rounded-lg transition-colors truncate">
+                                {{ page.title }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Statistics -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">DD Statistics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-3">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Total Topics</span>
+                            <span class="font-bold text-white">{{ section.pages | length }}</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">OSINT Sources</span>
+                            <span class="font-bold text-emerald-400">122</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Czech Registries</span>
+                            <span class="font-bold text-white">30+</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Entity Types</span>
+                            <span class="font-bold text-white">8</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Risk Grades</span>
+                            <span class="font-bold text-emerald-400">A-F</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Validation Method</span>
+                            <span class="font-bold text-purple-400">Triple-Check</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Platform</span>
+                            <span class="font-bold text-gray-300">Prismatic v8.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Quick Navigation</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-1">
+                        <a href="{{ config.base_url }}/osint/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">OSINT Sources</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">122 intelligence sources powering DD</p>
+                        </a>
+                        <a href="{{ config.base_url }}/academy/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Academy</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">Learn DD investigation techniques step by step</p>
+                        </a>
+                        <a href="{{ config.base_url }}/lab/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Lab</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">Experiment with OSINT pipelines and graph analysis</p>
+                        </a>
+                        <a href="{{ config.base_url }}/api/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">API Reference</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">Programmatic access to DD and OSINT endpoints</p>
+                        </a>
+                        <a href="{{ config.base_url }}/agents/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Agents</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5 ml-6">434 autonomous agents driving investigations</p>
+                        </a>
+                    </div>
+                </div>
+
+                {{ sidebar::full_sidebar(current_path=current_path) }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="py-12 border-t border-white/5">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <h3 class="text-lg font-semibold text-white mb-6">See Also</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="{{ config.base_url }}/osint/" class="p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-emerald-700/50 transition-all">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">DD &rarr; OSINT Sources</p>
+                <p class="text-sm text-gray-400">122 intelligence sources powering due diligence</p>
+            </a>
+            <a href="{{ config.base_url }}/academy/" class="p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-700/50 transition-all">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">DD &rarr; Academy</p>
+                <p class="text-sm text-gray-400">Learn DD investigation techniques and platform mastery</p>
+            </a>
+            <a href="{{ config.base_url }}/lab/" class="p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-emerald-700/50 transition-all">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">DD &rarr; Lab</p>
+                <p class="text-sm text-gray-400">Experiment with OSINT pipelines and graph analysis</p>
+            </a>
+            <a href="{{ config.base_url }}/api/" class="p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-cyan-700/50 transition-all">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">DD &rarr; API</p>
+                <p class="text-sm text-gray-400">Programmatic access to DD and OSINT endpoints</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+function ddFilter() {
+    return {
+        search: '',
+        matchesSearch: function(title, description) {
+            if (!this.search) return true;
+            var s = this.search.toLowerCase();
+            return title.includes(s) || description.includes(s);
+        }
+    };
+}
+</script>
+{% endblock content %}

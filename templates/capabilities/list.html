@@ -1,0 +1,644 @@
+{% extends "base.html" %}
+{% import "macros/sidebar.html" as sidebar %}
+{% import "macros/breadcrumbs.html" as breadcrumbs %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gray-900 py-16 lg:py-20 border-b border-white/5">
+    <div class="max-w-screen-xl px-4 mx-auto">
+                {{ breadcrumbs::section(section_title=section.title) }}
+<div class="mb-8">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold tracking-widest text-emerald-400 bg-emerald-900/30 rounded-full uppercase border border-emerald-700/50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                Non-Negotiable
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6">
+                Platform <span class="text-white">Doctrine</span>
+            </h1>
+            <p class="text-lg text-gray-400 max-w-3xl leading-relaxed">
+                {{ section.pages | length }}+ platform capabilities spanning quality enforcement, agent orchestration, and epistemic reasoning.
+            </p>
+        </div>
+
+        <!-- Doctrine Stats -->
+        <div class="flex flex-wrap justify-center gap-8 mt-12">
+            <div class="text-center">
+                <div class="text-4xl font-black text-red-500">100%</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Test Coverage</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-black text-yellow-500">0</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Warnings</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-black text-blue-500">0.95</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Confidence t</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-black text-purple-500">3</div>
+                <div class="text-sm text-gray-500 uppercase tracking-wider">Trinity Gates</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Registry Section -->
+<section class="bg-gray-900 py-12 lg:py-16" x-data="doctrineRegistry()">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="grid gap-8 lg:grid-cols-4">
+            <!-- Main Content (3/4) -->
+            <div class="lg:col-span-3">
+                <!-- Stats Summary -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/5 text-center">
+                        <div class="text-3xl font-black text-gray-400" x-text="items.length">0</div>
+                        <div class="text-sm text-gray-400 mt-1">Doctrines</div>
+                    </div>
+                    <div class="p-4 bg-emerald-900/20 rounded-xl border border-emerald-800 text-center">
+                        <div class="text-3xl font-black text-emerald-400" x-text="uniqueColors">0</div>
+                        <div class="text-sm text-gray-400 mt-1">Categories</div>
+                    </div>
+                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/5 text-center">
+                        <div class="text-3xl font-black text-gray-400">P0</div>
+                        <div class="text-sm text-gray-400 mt-1">Priority</div>
+                    </div>
+                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/5 text-center">
+                        <div class="text-3xl font-black text-gray-400" x-text="filteredItems.length">0</div>
+                        <div class="text-sm text-gray-400 mt-1">Showing</div>
+                    </div>
+                </div>
+
+                <!-- Controls Bar -->
+                <div class="mb-6 p-4 bg-gray-800 rounded-xl border border-gray-700">
+                    <div class="flex flex-col lg:flex-row gap-4">
+                        <!-- Search -->
+                        <div class="flex-1">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </div>
+                                <input type="text" x-model="searchTerm" @input="currentPage = 1"
+                                    class="block w-full pl-10 pr-4 py-2.5 text-sm text-white bg-gray-700 border border-gray-600 rounded-lg focus:ring-emerald-500/30 focus:border-emerald-500/50"
+                                    placeholder="Search doctrines, principles, frameworks...">
+                            </div>
+                        </div>
+
+                        <!-- Color/Category Filter -->
+                        <div class="w-full sm:w-auto lg:w-48">
+                            <select x-model="selectedColor" @change="currentPage = 1"
+                                class="block w-full py-2.5 px-4 text-sm text-white bg-gray-700 border border-gray-600 rounded-lg focus:ring-emerald-500/30 focus:border-emerald-500/50">
+                                <option value="">All Categories</option>
+                                <template x-for="c in uniqueColorList" :key="c">
+                                    <option :value="c" x-text="c.charAt(0).toUpperCase() + c.slice(1)"></option>
+                                </template>
+                            </select>
+                        </div>
+
+                        <!-- Sort -->
+                        <div class="w-full sm:w-auto lg:w-48">
+                            <select x-model="sortField"
+                                class="block w-full py-2.5 px-4 text-sm text-white bg-gray-700 border border-gray-600 rounded-lg focus:ring-emerald-500/30 focus:border-emerald-500/50">
+                                <option value="title">Sort: Alphabetical</option>
+                                <option value="color">Sort: Category</option>
+                            </select>
+                        </div>
+
+                        <!-- View Toggle -->
+                        <div class="flex items-center bg-gray-700 border border-gray-600 rounded-lg overflow-hidden">
+                            <button @click="viewMode = 'cards'"
+                                :class="viewMode === 'cards' ? 'bg-emerald-600 text-white' : 'text-gray-300 hover:bg-gray-600'"
+                                class="px-3 py-2.5 text-sm font-medium transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                            </button>
+                            <button @click="viewMode = 'table'"
+                                :class="viewMode === 'table' ? 'bg-emerald-600 text-white' : 'text-gray-300 hover:bg-gray-600'"
+                                class="px-3 py-2.5 text-sm font-medium transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Reset -->
+                        <button @click="searchTerm = ''; selectedColor = ''; sortField = 'title'; currentPage = 1"
+                            class="px-4 py-2.5 text-sm font-medium text-gray-300 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 transition-colors">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="mt-3 text-sm text-gray-400">
+                        Showing <span class="font-semibold text-emerald-400" x-text="paginatedItems.length"></span> of
+                        <span class="font-semibold text-white" x-text="filteredItems.length"></span> doctrines
+                    </div>
+                </div>
+
+                <!-- Card View -->
+                <div x-show="viewMode === 'cards'" x-transition class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    <template x-for="item in paginatedItems" :key="item.title">
+                        <a :href="item.url"
+                            class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1">
+                            <!-- Icon -->
+                            <div class="w-14 h-14 mb-5 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                                :class="getGradientBg(item.color)">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path x-show="item.icon === 'x-circle'" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    <path x-show="item.icon === 'check-circle'" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    <path x-show="item.icon === 'shield'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    <path x-show="item.icon === 'lightning'" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    <path x-show="item.icon === 'eye'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path x-show="item.icon === 'eye'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    <path x-show="item.icon === 'cube'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                    <path x-show="item.icon === 'clock'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    <path x-show="item.icon === 'refresh'" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    <path x-show="item.icon === 'fire'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                    <path x-show="item.icon === 'scale'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                    <path x-show="item.icon === 'beaker'" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                    <path x-show="item.icon === 'document-text'" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    <path
+                                        x-show="!['x-circle','check-circle','shield','lightning','eye','cube','clock','refresh','fire','scale','beaker','document-text'].includes(item.icon)"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors truncate"
+                                x-text="item.title"></h3>
+                            <p class="text-gray-400 text-sm leading-relaxed line-clamp-3" x-text="item.description"></p>
+                            <div
+                                class="mt-4 flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
+                                <span>Learn more</span>
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </a>
+                    </template>
+                </div>
+
+                <!-- Table View -->
+                <div x-show="viewMode === 'table'" x-transition
+                    class="overflow-x-auto rounded-xl border border-gray-700 shadow-lg">
+                    <table class="w-full text-sm text-left text-gray-400">
+                        <thead class="text-xs text-gray-400 uppercase bg-gray-800">
+                            <tr>
+                                <th scope="col" class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 cursor-pointer hover:bg-gray-700"
+                                    @click="toggleSort('title')">
+                                    <div class="flex items-center gap-2">
+                                        Doctrine
+                                        <svg class="w-3 h-3" :class="{'rotate-180': sortField === 'title' && sortDesc}"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 hidden sm:table-cell">Description</th>
+                                <th scope="col" class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 cursor-pointer hover:bg-gray-700 hidden md:table-cell"
+                                    @click="toggleSort('color')">
+                                    <div class="flex items-center gap-2">
+                                        Category
+                                        <svg class="w-3 h-3" :class="{'rotate-180': sortField === 'color' && sortDesc}"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="item in paginatedItems" :key="item.title">
+                                <tr class="bg-gray-900 border-b border-gray-700 hover:bg-gray-800 transition-colors">
+                                    <td class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4">
+                                        <div class="flex items-center gap-2 sm:gap-3">
+                                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                                                :class="getGradientBg(item.color)">
+                                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                                </svg>
+                                            </div>
+                                            <span class="font-semibold text-white truncate" x-text="item.title"></span>
+                                        </div>
+                                    </td>
+                                    <td class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 max-w-md hidden sm:table-cell">
+                                        <p class="truncate" x-text="item.description"></p>
+                                    </td>
+                                    <td class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 hidden md:table-cell">
+                                        <span class="px-2.5 py-1 text-xs font-medium rounded-full capitalize"
+                                            :class="getCategoryBadge(item.color)" x-text="item.color"></span>
+                                    </td>
+                                    <td class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 text-center">
+                                        <a :href="item.url"
+                                            class="font-medium text-emerald-400 hover:underline">View</a>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div x-show="filteredItems.length === 0" class="text-center py-16">
+                    <svg class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <p class="text-gray-400 text-lg">No doctrines match your search criteria.</p>
+                </div>
+
+                <!-- Pagination -->
+                <div x-show="totalPages > 1" class="flex flex-col md:flex-row items-center justify-between mt-8 gap-4">
+                    <div class="text-sm text-gray-400">
+                        Page <span class="font-semibold text-white" x-text="currentPage"></span> of <span
+                            class="font-semibold text-white" x-text="totalPages"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button @click="currentPage = Math.max(1, currentPage - 1)" :disabled="currentPage === 1"
+                            :class="{'opacity-50 cursor-not-allowed': currentPage === 1}"
+                            class="px-4 py-2 text-sm font-medium text-gray-300 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700">
+                            Previous
+                        </button>
+                        <template x-for="page in visiblePages" :key="page">
+                            <button @click="currentPage = page"
+                                :class="currentPage === page ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700'"
+                                class="px-4 py-2 text-sm font-medium border rounded-lg" x-text="page">
+                            </button>
+                        </template>
+                        <button @click="currentPage = Math.min(totalPages, currentPage + 1)"
+                            :disabled="currentPage === totalPages"
+                            :class="{'opacity-50 cursor-not-allowed': currentPage === totalPages}"
+                            class="px-4 py-2 text-sm font-medium text-gray-300 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700">
+                            Next
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section Content -->
+                <div class="mt-10 prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+
+            <!-- Right Sidebar (1/4) -->
+            <div class="hidden lg:block sticky top-4 space-y-6 self-start">
+                <!-- Card 1: Section Topics -->
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
+                    x-data="{ expanded: true }">
+                    <button @click="expanded = !expanded"
+                        class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Section Topics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="{'rotate-180': !expanded}"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-collapse x-transition class="px-4 pb-4 border-t border-gray-700/50 pt-4">
+                        <div class="max-h-[400px] overflow-y-auto space-y-1 pr-1 scrollbar-thin">
+                            {% for page in section.pages %}
+                            <a href="{{ page.permalink }}"
+                                class="block px-3 py-1.5 text-xs text-gray-400 hover:text-emerald-400 hover:bg-gray-700/50 rounded-lg transition-colors truncate">
+                                {{ page.title }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Section Statistics -->
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
+                    x-data="{ expanded: true }">
+                    <button @click="expanded = !expanded"
+                        class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Section Statistics</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="{'rotate-180': !expanded}"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-collapse x-transition class="px-4 pb-4 border-t border-gray-700/50 pt-4">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-400">Total Doctrines</span>
+                                <span class="font-bold text-white" x-text="items.length">0</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-400">Categories</span>
+                                <span class="font-bold text-white" x-text="uniqueColors">0</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-400">Priority Level</span>
+                                <span class="font-bold text-emerald-400">P0 Absolute</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-400">Enforcement</span>
+                                <span class="font-bold text-white">Mandatory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Quick Navigation -->
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
+                    x-data="{ expanded: true }">
+                    <button @click="expanded = !expanded"
+                        class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                            </svg>
+                            <span class="font-semibold text-white text-sm">Quick Navigation</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="{'rotate-180': !expanded}"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="expanded" x-collapse x-transition class="px-4 pb-4 border-t border-gray-700/50 pt-4">
+                        <div class="space-y-1">
+                            <a href="{{ config.base_url }}/architecture/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Architecture</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-0.5 ml-6">OTP supervision trees, umbrella structure, and
+                                    system design</p>
+                            </a>
+                            <a href="{{ config.base_url }}/technologies/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Technologies</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-0.5 ml-6">Elixir, Phoenix, PostgreSQL, and platform tech
+                                    stack</p>
+                            </a>
+                            <a href="{{ config.base_url }}/agents/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Agents</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-0.5 ml-6">434 autonomous agents enforcing platform doctrines
+                                </p>
+                            </a>
+                            <a href="{{ config.base_url }}/apps/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10l8 4" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Applications</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-0.5 ml-6">99 umbrella apps implementing capability modules
+                                </p>
+                            </a>
+                            <a href="{{ config.base_url }}/glossary/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">Glossary</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-0.5 ml-6">225+ terms defining doctrines, axioms, and
+                                    framework concepts</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{ sidebar::full_sidebar(current_path=current_path) }}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Doctrine Integration -->
+<section class="bg-gray-800 py-16 border-t border-gray-700">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-4">Doctrine Integration</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Every layer of the platform enforces these doctrines through automated gates and verification.
+            </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-4">
+            <div class="text-center p-6 bg-gray-900 rounded-xl border border-gray-700">
+                <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                </div>
+                <h4 class="font-semibold text-white mb-1">Pre-Commit</h4>
+                <p class="text-sm text-gray-500">Quality gates block violations</p>
+            </div>
+            <div class="text-center p-6 bg-gray-900 rounded-xl border border-gray-700">
+                <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </div>
+                <h4 class="font-semibold text-white mb-1">CI/CD</h4>
+                <p class="text-sm text-gray-500">Pipeline enforcement</p>
+            </div>
+            <div class="text-center p-6 bg-gray-900 rounded-xl border border-gray-700">
+                <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                    </svg>
+                </div>
+                <h4 class="font-semibold text-white mb-1">Agent AIAD</h4>
+                <p class="text-sm text-gray-500">Runtime compliance</p>
+            </div>
+            <div class="text-center p-6 bg-gray-900 rounded-xl border border-gray-700">
+                <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h4 class="font-semibold text-white mb-1">Trinity Gate</h4>
+                <p class="text-sm text-gray-500">Formal verification</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="doctrine-data" type="application/json">
+[
+    {% for page in section.pages %}
+    {
+        "title": {{ page.title | json_encode | safe }},
+        "url": {{ page.permalink | json_encode | safe }},
+        "description": {{ page.extra.description | default(value='') | json_encode | safe }},
+        "icon": {{ page.extra.icon | default(value='shield') | json_encode | safe }},
+        "color": {{ page.extra.color | default(value='blue') | json_encode | safe }}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+]
+</script>
+<script>
+    function doctrineRegistry() {
+        return {
+            searchTerm: '',
+            selectedColor: '',
+            sortField: 'title',
+            sortDesc: false,
+            viewMode: 'cards',
+            currentPage: 1,
+            perPage: 12,
+            items: JSON.parse(document.getElementById('doctrine-data').textContent),
+
+            get uniqueColors() {
+                return [...new Set(this.items.map(i => i.color))].length;
+            },
+            get uniqueColorList() {
+                return [...new Set(this.items.map(i => i.color))].sort();
+            },
+            get filteredItems() {
+                let result = [...this.items];
+                if (this.searchTerm) {
+                    const q = this.searchTerm.toLowerCase();
+                    result = result.filter(i =>
+                        i.title.toLowerCase().includes(q) ||
+                        i.description.toLowerCase().includes(q)
+                    );
+                }
+                if (this.selectedColor) {
+                    result = result.filter(i => i.color === this.selectedColor);
+                }
+                result.sort((a, b) => {
+                    let av = a[this.sortField], bv = b[this.sortField];
+                    if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+                    if (this.sortDesc) return bv > av ? 1 : bv < av ? -1 : 0;
+                    return av > bv ? 1 : av < bv ? -1 : 0;
+                });
+                return result;
+            },
+            get paginatedItems() {
+                const start = (this.currentPage - 1) * this.perPage;
+                return this.filteredItems.slice(start, start + this.perPage);
+            },
+            get totalPages() {
+                return Math.ceil(this.filteredItems.length / this.perPage) || 1;
+            },
+            get visiblePages() {
+                const pages = [];
+                const total = this.totalPages;
+                const current = this.currentPage;
+                let start = Math.max(1, current - 2);
+                let end = Math.min(total, current + 2);
+                if (end - start < 4) {
+                    if (start === 1) end = Math.min(total, 5);
+                    else start = Math.max(1, total - 4);
+                }
+                for (let i = start; i <= end; i++) pages.push(i);
+                return pages;
+            },
+            toggleSort(field) {
+                if (this.sortField === field) this.sortDesc = !this.sortDesc;
+                else { this.sortField = field; this.sortDesc = false; }
+                this.currentPage = 1;
+            },
+            getGradientBg(color) {
+                const map = {
+                    red: 'bg-gray-700',
+                    blue: 'bg-gray-700',
+                    purple: 'bg-gray-700',
+                    emerald: 'bg-gray-700',
+                    yellow: 'bg-gray-700',
+                    cyan: 'bg-gray-700',
+                    pink: 'bg-gray-700',
+                    orange: 'bg-gray-700',
+                    indigo: 'bg-gray-700'
+                };
+                return map[color] || 'bg-gray-700';
+            },
+            getCategoryBadge(color) {
+                const map = {
+                    red: 'bg-white/10 text-gray-300',
+                    blue: 'bg-white/10 text-gray-300',
+                    purple: 'bg-white/10 text-gray-300',
+                    emerald: 'bg-white/10 text-gray-300',
+                    yellow: 'bg-yellow-900/30 text-yellow-400',
+                    cyan: 'bg-white/10 text-gray-300',
+                    pink: 'bg-pink-900/30 text-pink-400',
+                    orange: 'bg-orange-900/30 text-orange-400',
+                    indigo: 'bg-indigo-900/30 text-gray-400'
+                };
+                return map[color] || 'bg-gray-700 text-gray-300';
+            }
+        };
+    }
+</script>
+{% endblock content %}

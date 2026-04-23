@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Components Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/css/prismatic-ui-components.css">
+</head>
+<body class="bg-gray-950 text-white p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center">🎯 Interactive UI Components Test</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Security Rating Demo -->
+            <div class="bg-gray-900 rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-4">Security Rating Card</h2>
+                <div id="security-rating-demo" class="fade-in"></div>
+            </div>
+
+            <!-- Intelligence Grid Demo -->
+            <div class="bg-gray-900 rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-4">Intelligence Grid</h2>
+                <div id="intelligence-grid-demo" class="fade-in"></div>
+            </div>
+
+            <!-- Risk Heatmap Demo -->
+            <div class="bg-gray-900 rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-4">Risk Heatmap</h2>
+                <div id="risk-heatmap-demo" class="fade-in"></div>
+            </div>
+
+            <!-- Network Graph Demo -->
+            <div class="bg-gray-900 rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-4">Network Graph</h2>
+                <div id="network-graph-demo" class="fade-in"></div>
+            </div>
+        </div>
+
+        <!-- Component Showcase -->
+        <div class="mt-12 bg-gray-900 rounded-xl p-6">
+            <h2 class="text-xl font-semibold mb-4">Framework Integration Showcase</h2>
+            <div id="component-showcase" class=""></div>
+        </div>
+    </div>
+
+    <script src="static/js/prismatic-ui-components.js"></script>
+    <script src="static/js/ui-components-test.js"></script>
+    <script>
+        // Initialize components when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof PrismaticUIComponents !== 'undefined') {
+                console.log('✅ PrismaticUIComponents loaded successfully');
+
+                // Initialize the components
+                window.prismaticUI = new PrismaticUIComponents();
+                console.log('✅ UI Components initialized');
+
+                // Test basic rendering
+                setTimeout(() => {
+                    console.log('🧪 Starting component tests...');
+                }, 1000);
+            } else {
+                console.error('❌ PrismaticUIComponents not loaded');
+            }
+        });
+    </script>
+</body>
+</html>

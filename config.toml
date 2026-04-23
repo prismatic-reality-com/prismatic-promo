@@ -1,0 +1,48 @@
+base_url = "https://prismatic-reality.com"
+title = "Prismatic Platform"
+description = "Decision Infrastructure under Uncertainty | Due Diligence | Risk Intelligence | OSINT Investigations"
+default_language = "en"
+compile_sass = false
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+ignored_content = ["node_modules/**"]
+minify_html = true
+hard_link_static = false
+
+[extra]
+flowbite_version = "2.3.0"
+alpine_js_version = "3.13.5"
+author = "Tomáš Korcak"
+author_handle = "@korczis"
+author_alter_ego = "Sig Nihl"
+author_email = "korczis@gmail.com"
+author_github = "https://github.com/korczis"
+author_gitlab = "https://gitlab.com/korczis"
+author_linkedin = "https://linkedin.com/in/korczis"
+author_twitter = "https://twitter.com/korczis"
+organization = "Open Source Community"
+enable_search = true
+enable_analytics = false
+enable_comments = false
+build_timestamp = ""
+open_source = true
+license = "GHL"
+license_full = "General Honest License"
+repository_github = "https://github.com/korczis/prismatic-platform"
+repository_gitlab = "https://gitlab.com/korczis/prismatic-platform"
+# Centralized platform counts - update here, reference via config.extra in templates
+agent_count = 530
+command_count = 214
+app_count = 115
+loc_millions = "2.8"
+mcp_endpoint = "/api/v1/mcp"
+mcp_enabled = false
+
+[markdown]
+render_emoji = true
+
+[markdown.highlighting]
+style = "class"
+theme = "material-theme-ocean"
+error_on_missing_language = false

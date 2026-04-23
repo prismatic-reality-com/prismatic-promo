@@ -1,0 +1,64 @@
+[38;2;248;248;242mname: Deploy to GitHub Pages[0m
+
+[38;2;248;248;242m# Pure static site (Zola SSG) with Tailwind + Flowbite + Alpine + Chart.js + p5 + three.js[0m
+[38;2;248;248;242m# Libraries are loaded on-demand from CDN in templates/base.html (no node build required).[0m
+
+[38;2;248;248;242mon:[0m
+[38;2;248;248;242m  push:[0m
+[38;2;248;248;242m    branches:[0m
+[38;2;248;248;242m      - main[0m
+[38;2;248;248;242m  workflow_dispatch:[0m
+
+[38;2;248;248;242mpermissions:[0m
+[38;2;248;248;242m  contents: read[0m
+[38;2;248;248;242m  pages: write[0m
+[38;2;248;248;242m  id-token: write[0m
+
+[38;2;248;248;242mconcurrency:[0m
+[38;2;248;248;242m  group: pages[0m
+[38;2;248;248;242m  cancel-in-progress: false[0m
+
+[38;2;248;248;242mjobs:[0m
+[38;2;248;248;242m  build:[0m
+[38;2;248;248;242m    name: Build (Zola)[0m
+[38;2;248;248;242m    runs-on: ubuntu-latest[0m
+[38;2;248;248;242m    steps:[0m
+[38;2;248;248;242m      - name: Checkout[0m
+[38;2;248;248;242m        uses: actions/checkout@v4[0m
+
+[38;2;248;248;242m      - name: Install Zola[0m
+[38;2;248;248;242m        uses: taiki-e/install-action@v2[0m
+[38;2;248;248;242m        with:[0m
+[38;2;248;248;242m          tool: zola@0.22.1[0m
+
+[38;2;248;248;242m      - name: Configure Pages[0m
+[38;2;248;248;242m        id: pages[0m
+[38;2;248;248;242m        uses: actions/configure-pages@v5[0m
+
+[38;2;248;248;242m      - name: Build site[0m
+[38;2;248;248;242m        env:[0m
+[38;2;248;248;242m          BASE_URL: ${{ steps.pages.outputs.base_url }}[0m
+[38;2;248;248;242m        run: |[0m
+[38;2;248;248;242m          # BASE_URL is either the custom domain (if CNAME present) or[0m
+[38;2;248;248;242m          # https://<owner>.github.io/<repo>/. Zola writes absolute URLs using it.[0m
+[38;2;248;248;242m          zola build --base-url "${BASE_URL}" --output-dir public --force[0m
+
+[38;2;248;248;242m      - name: Guard against Jekyll processing[0m
+[38;2;248;248;242m        run: touch public/.nojekyll[0m
+
+[38;2;248;248;242m      - name: Upload Pages artifact[0m
+[38;2;248;248;242m        uses: actions/upload-pages-artifact@v3[0m
+[38;2;248;248;242m        with:[0m
+[38;2;248;248;242m          path: public[0m
+
+[38;2;248;248;242m  deploy:[0m
+[38;2;248;248;242m    name: Deploy to GitHub Pages[0m
+[38;2;248;248;242m    needs: build[0m
+[38;2;248;248;242m    runs-on: ubuntu-latest[0m
+[38;2;248;248;242m    environment:[0m
+[38;2;248;248;242m      name: github-pages[0m
+[38;2;248;248;242m      url: ${{ steps.deployment.outputs.page_url }}[0m
+[38;2;248;248;242m    steps:[0m
+[38;2;248;248;242m      - name: Deploy[0m
+[38;2;248;248;242m        id: deployment[0m
+[38;2;248;248;242m        uses: actions/deploy-pages@v4[0m

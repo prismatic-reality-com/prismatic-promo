@@ -1,0 +1,321 @@
+{# Sidebar macros: want_to_know_more, platform_stats, quick_links, nav_card, collapsible_card, chart_card, glossary_card
+#}
+
+{# === BASIC COMPONENTS === #}
+
+{# Header with Icon #}
+{% macro header(title, icon_path) %}
+<div class="flex items-center gap-2 mb-3">
+    {% if icon_path | start_with(pat="<svg") %} {{ icon_path | safe }} {% else %} <img src="{{ icon_path }}"
+        class="w-5 h-5 flex-shrink-0" alt="">
+        {% endif %}
+        <span class="font-semibold text-white text-sm">{{ title }}</span>
+</div>
+{% endmacro header %}
+
+{# Nav Item #}
+{% macro nav_item(label, url, icon, count="") %}
+<a href="{{ url }}"
+    class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors group">
+    {% if icon | start_with(pat="<") %} {{ icon | safe }} {% else %} <span
+        class="w-1.5 h-1.5 rounded-full bg-{{ icon }}-400 flex-shrink-0"></span>
+        {% endif %}
+        <span>{{ label }}</span>
+        {% if count %}
+        <span class="ml-auto text-xs text-gray-600 group-hover:text-gray-500">{{ count }}</span>
+        {% endif %}
+</a>
+{% endmacro nav_item %}
+
+{# === CARDS === #}
+
+{# Navigation Card (Static) #}
+{% macro nav_card(title, icon_path, items) %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6">
+    <div class="p-4">
+        {{ self::header(title=title, icon_path=icon_path) }}
+        <nav class="space-y-1">
+            {% for item in items %}
+            {{ self::nav_item(label=item.label, url=item.url, icon=item.icon, count=item.count | default(value="")) }}
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+{% endmacro nav_card %}
+
+{# Collapsible Card #}
+{% macro collapsible_card(title, icon_path, items="", content="", expanded=true) %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
+    x-data="{ expanded: {{ expanded | json_encode }} }">
+    <button @click="expanded = !expanded"
+        class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
+        <div class="flex items-center gap-2">
+            {% if icon_path | start_with(pat="<svg") %} {{ icon_path | safe }} {% else %} <img src="{{ icon_path }}"
+                class="w-5 h-5 flex-shrink-0" alt="">
+                {% endif %}
+                <span class="font-semibold text-white text-sm">{{ title }}</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="{'rotate-180': !expanded}"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+    <div x-show="expanded" x-collapse x-transition class="px-4 pb-4 border-t border-gray-700/50 pt-4">
+        {% if items %}
+        <nav class="space-y-1">
+            {% for item in items %}
+            {{ self::nav_item(label=item.label, url=item.url, icon=item.icon, count=item.count | default(value="")) }}
+            {% endfor %}
+        </nav>
+        {% endif %}
+        {% if content %}
+        {{ content | safe }}
+        {% endif %}
+    </div>
+</div>
+{% endmacro collapsible_card %}
+
+{# Stats Card (Generic) #}
+{% macro stats_card(title, icon_path, stats) %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6">
+    <div class="p-4">
+        {{ self::header(title=title, icon_path=icon_path) }}
+        <div class="space-y-3">
+            {% for stat in stats %}
+            <div class="flex items-center justify-between">
+                <dt class="text-sm text-gray-400">{{ stat.label }}</dt>
+                <dd class="text-sm font-semibold text-gray-300">{{ stat.value }}</dd>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endmacro stats_card %}
+
+{# Generic Card (Static content wrapper) #}
+{% macro card(title, icon_path) %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6">
+    <div class="p-4">
+        {{ self::header(title=title, icon_path=icon_path) }}
+        <div class="mt-4">
+            {{ caller() }}
+        </div>
+    </div>
+</div>
+{% endmacro card %}
+
+{# Glossary Card #}
+{% macro glossary_card(glossary_terms) %}
+{% if glossary_terms %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6" x-data="{ expanded: true }">
+    <button @click="expanded = !expanded"
+        class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span class="font-semibold text-white text-sm">Related Glossary</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="{'rotate-180': !expanded}"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+    <div x-show="expanded" x-collapse x-transition class="px-4 pb-4 border-t border-gray-700/50 pt-4">
+        <ul class="space-y-3">
+            {% for term_key in glossary_terms %}
+            {# Assuming the caller passes the section or terms directly, logic might need to be outside #}
+            {# But for consistency, let's assume terms is a list of objects or strings to fetch. #}
+            {# For simplicity, let's assume we pass the rendered link content or a simple struct #}
+            <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <a href="{{ config.base_url }}/glossary/{{ term_key | slugify }}/"
+                    class="text-sm text-indigo-400 hover:text-indigo-300 transition-colors">{{ term_key |
+                    replace(from="-", to=" ") | title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="mt-4 pt-3 border-t border-gray-700">
+            <a href="{{ config.base_url }}/glossary/"
+                class="flex items-center justify-center gap-2 text-xs font-medium text-gray-400 hover:text-white transition-colors group">
+                View All Terms
+                <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endmacro glossary_card %}
+
+{# === LEGACY MACROS (RETAINED FOR COMPATIBILITY) === #}
+
+{# === PLATFORM STATS - Compact stats card === #}
+{% macro platform_stats(current_path) %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+    <div class="p-4">
+        <div class="flex items-center gap-2 mb-3">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <span class="font-semibold text-white text-sm">Platform at a Glance</span>
+        </div>
+        <div class="space-y-2">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-indigo-400" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg><span class="text-xs text-gray-400">Agents</span></div>
+                <span class="text-xs font-bold text-white">434</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg><span class="text-xs text-gray-400">Commands</span></div>
+                <span class="text-xs font-bold text-white">217</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-purple-400" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg><span class="text-xs text-gray-400">Applications</span></div>
+                <span class="text-xs font-bold text-white">90</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-amber-400" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg><span class="text-xs text-gray-400">OSINT Sources</span></div>
+                <span class="text-xs font-bold text-white">121+</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-gray-700">
+                <span class="text-xs text-gray-500">Quality Score</span>
+                <span class="text-xs font-bold text-emerald-400">100/100</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro platform_stats %}
+
+{# === QUICK LINKS - Explore Platform navigation === #}
+{% macro quick_links(current_path) %}
+{% set s = current_path | trim_start_matches(pat="/") | split(pat="/") | first | default(value="home") %}
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden" x-data="{ open: true }">
+    <button @click="open = !open" class="w-full flex items-center justify-between p-4 text-left">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <span class="font-semibold text-white text-sm">Explore Platform</span>
+        </div>
+        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{ 'rotate-180': !open }" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+    <div x-show="open" x-transition class="px-4 pb-4 space-y-1">
+        {% if s != "dd" %}<a href="{{ config.base_url }}/dd/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Due Diligence<span
+                class="ml-auto text-xs text-gray-600">122 src</span></a>{% endif %}
+        {% if s != "osint" %}<a href="{{ config.base_url }}/osint/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>OSINT Sources<span
+                class="ml-auto text-xs text-gray-600">121+</span></a>{% endif %}
+        {% if s != "lab" %}<a href="{{ config.base_url }}/lab/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>Interactive Labs<span
+                class="ml-auto text-xs text-gray-600">15 exp</span></a>{% endif %}
+        {% if s != "academy" %}<a href="{{ config.base_url }}/academy/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Academy<span
+                class="ml-auto text-xs text-gray-600">15 courses</span></a>{% endif %}
+        {% if s != "api" %}<a href="{{ config.base_url }}/api/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>API Reference</a>{% endif %}
+        {% if s != "agents" %}<a href="{{ config.base_url }}/agents/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>Agents<span
+                class="ml-auto text-xs text-gray-600">434</span></a>{% endif %}
+        {% if s != "apps" and s != "applications" %}<a href="{{ config.base_url }}/apps/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Applications<span
+                class="ml-auto text-xs text-gray-600">90</span></a>{% endif %}
+        {% if s != "glossary" %}<a href="{{ config.base_url }}/glossary/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Glossary<span
+                class="ml-auto text-xs text-gray-600">225+</span></a>{% endif %}
+        {% if s != "teams" %}<a href="{{ config.base_url }}/teams/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-red-400"></span>Color Teams<span
+                class="ml-auto text-xs text-gray-600">6</span></a>{% endif %}
+    </div>
+</div>
+{% endmacro quick_links %}
+
+{# === WANT TO KNOW MORE? - Context-aware navigation card === #}
+{% macro want_to_know_more(current_path) %}
+{% set s = current_path | trim_start_matches(pat="/") | split(pat="/") | first | default(value="home") %}
+{% set lc = "group flex items-center gap-2 px-3 py-1.5 text-xs text-indigo-300 hover:text-white hover:bg-indigo-900/30
+rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400" %}
+{% set ic = "w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" %}
+<div
+    class="relative bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/20 overflow-hidden shadow-lg shadow-indigo-900/10">
+    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+    <div class="p-4 pt-5">
+        <div class="flex items-center gap-2 mb-3">
+            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="font-semibold text-white text-sm">Want to Know More?</span>
+            <svg class="w-3 h-3 text-purple-400 ml-auto" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+        </div>
+        <div class="text-xs text-gray-400 mb-3">
+            <p>Dive deeper into the Prismatic Platform -- explore our architecture, agents, and epistemic framework.</p>
+        </div>
+        <nav class="space-y-1">
+            {# Fallback if no specific logic #}
+            <a href="{{ config.base_url }}/about/" class="{{ lc }}"><svg class="{{ ic }}" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>About Prismatic</a>
+            <a href="{{ config.base_url }}/agents/" class="{{ lc }}"><svg class="{{ ic }}" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>Agent Ecosystem (434)</a>
+            <a href="{{ config.base_url }}/architecture/" class="{{ lc }}"><svg class="{{ ic }}" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>Architecture</a>
+        </nav>
+    </div>
+</div>
+{% endmacro want_to_know_more %}
+
+{# === FULL SIDEBAR COMBO - All 3 cards stacked === #}
+{% macro full_sidebar(current_path) %}
+{{ self::quick_links(current_path=current_path) }}
+{{ self::platform_stats(current_path=current_path) }}
+{{ self::want_to_know_more(current_path=current_path) }}
+{% endmacro full_sidebar %}

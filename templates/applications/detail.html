@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+{% import "macros/sidebar.html" as sidebar %}
+{% import "macros/application-teaser.html" as teaser %}
+
+{% block title %}{{ page.title }} - Applications - Prismatic Platform{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<section class="bg-gray-900 py-12 lg:py-16 border-b border-gray-700">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <!-- Breadcrumb -->
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{{ config.base_url }}" class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+                        <a href="{{ config.base_url }}/applications/" class="ml-1 text-sm font-medium text-gray-400 hover:text-white md:ml-2">Applications</a>
+                    </div>
+                </li>
+                {% if page.ancestors | length > 2 %}
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+                        {% set parent = get_section(path=page.ancestors | last) %}
+                        <a href="{{ parent.permalink }}" class="ml-1 text-sm font-medium text-gray-400 hover:text-white md:ml-2">{{ parent.title }}</a>
+                    </div>
+                </li>
+                {% endif %}
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+                        <span class="ml-1 text-sm font-medium text-gray-200 md:ml-2">{{ page.title }}</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Header Card -->
+        <div class="bg-gray-800 rounded-2xl shadow-xl border border-gray-700 overflow-hidden">
+            <div class="p-8">
+                <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 bg-gray-700 rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <h1 class="text-3xl md:text-4xl font-black text-white mb-3">{{ page.title }}</h1>
+                        {% if page.description %}
+                        <p class="text-lg text-gray-400 leading-relaxed">{{ page.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Teaser -->
+{% if page.extra.teaser_type is defined %}
+<section class="bg-gray-900/50 pt-8 pb-0">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="max-w-4xl mx-auto">
+            {{ teaser::render_teaser(teaser_type=page.extra.teaser_type, title=page.title) }}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Content Section -->
+<section class="bg-gray-900 py-12 lg:py-16">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="grid gap-8 lg:grid-cols-3">
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+                <article class="prose prose-lg prose-invert max-w-none
+                    prose-headings:text-white
+                    prose-p:text-gray-300
+                    prose-a:text-rose-400
+                    prose-strong:text-white
+                    prose-code:text-rose-400
+                    prose-pre:bg-gray-800
+                    prose-table:text-gray-300
+                    prose-th:text-white
+                    prose-td:border-gray-700">
+                    {{ page.content | safe }}
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="hidden lg:block sticky top-4 space-y-6 self-start">
+                <!-- Application Info Card -->
+                <div class="p-6 bg-gray-800 rounded-xl border border-gray-700"
+                     x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 200)"
+                     x-show="shown"
+                     x-transition:enter="transition ease-out duration-300"
+                     x-transition:enter-start="opacity-0 transform translate-x-4"
+                     x-transition:enter-end="opacity-100 transform translate-x-0">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Application Info
+                    </h3>
+                    <dl class="space-y-3">
+                        {% if page.extra.categories is defined and page.extra.categories is iterable %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Category</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.extra.categories | join(sep=", ") }}</dd>
+                        </div>
+                        {% elif page.extra.categories is defined %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Category</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.extra.categories }}</dd>
+                        </div>
+                        {% endif %}
+                        {% if page.extra.status is defined and page.extra.status is iterable %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Status</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.extra.status | join(sep=", ") }}</dd>
+                        </div>
+                        {% elif page.extra.status is defined %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Status</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.extra.status }}</dd>
+                        </div>
+                        {% endif %}
+                        {% if page.extra.difficulty is defined and page.extra.difficulty is iterable %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Difficulty</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.extra.difficulty | join(sep=", ") }}</dd>
+                        </div>
+                        {% elif page.extra.difficulty is defined %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Difficulty</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.extra.difficulty }}</dd>
+                        </div>
+                        {% endif %}
+                        {% if page.word_count %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Word Count</dt>
+                            <dd class="text-sm font-semibold text-gray-300">{{ page.word_count }}</dd>
+                        </div>
+                        {% endif %}
+                        <div class="flex justify-between items-center">
+                            <dt class="text-sm text-gray-400">Platform</dt>
+                            <dd class="text-sm font-semibold text-gray-300">Prismatic v8.0</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <!-- Application Stats -->
+                <div class="bg-gray-800/50 rounded-xl border border-white/5 p-5"
+                     x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 300)"
+                     x-show="shown"
+                     x-transition:enter="transition ease-out duration-300"
+                     x-transition:enter-start="opacity-0 transform translate-x-4"
+                     x-transition:enter-end="opacity-100 transform translate-x-0">
+                    <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Quick Stats</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-400">Reading Time</span>
+                                <span class="text-white font-bold">{{ page.reading_time }} min</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                <div class="bg-amber-500 h-1.5 rounded-full" style="width: {{ page.reading_time * 5 }}%"></div>
+                            </div>
+                        </div>
+                        {% if page.word_count %}
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-400">Word Count</span>
+                                <span class="text-white font-bold">{{ page.word_count }}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="pt-2 border-t border-gray-700">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-400">Platform Apps</span>
+                                <span class="font-bold text-white">90</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Umbrella Apps</span>
+                            <span class="font-bold text-white">99</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Quality Score</span>
+                            <span class="font-bold text-emerald-400">100/100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paginated Section Navigation -->
+                <div class="p-6 bg-gray-800 rounded-xl border border-gray-700"
+                     x-data="sectionNav()" x-init="setTimeout(() => shown = true, 400)">
+                    <div x-show="shown" x-transition:enter="transition ease-out duration-300"
+                         x-transition:enter-start="opacity-0 transform translate-x-4"
+                         x-transition:enter-end="opacity-100 transform translate-x-0">
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                            </svg>
+                            Applications
+                            <span class="text-xs font-normal text-gray-400" x-text="'(' + totalItems + ' apps)'"></span>
+                        </h3>
+                        <ul class="space-y-1.5">
+                            <template x-for="item in paginatedItems" :key="item.url">
+                                <li><a :href="item.url"
+                                       :class="item.isCurrent ? 'text-amber-400 font-semibold bg-amber-900/20' : 'text-gray-400 hover:text-white hover:bg-gray-700/50'"
+                                       class="block text-sm px-3 py-1.5 rounded-lg transition-all" x-text="item.title"></a></li>
+                            </template>
+                        </ul>
+                        <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-700" x-show="totalPages > 1">
+                            <button @click="prevPage()" :disabled="currentPage === 1"
+                                    :class="currentPage === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:text-white'"
+                                    class="text-xs font-medium text-gray-400 transition-colors">Previous</button>
+                            <span class="text-xs text-gray-500" x-text="currentPage + ' / ' + totalPages"></span>
+                            <button @click="nextPage()" :disabled="currentPage === totalPages"
+                                    :class="currentPage === totalPages ? 'opacity-30 cursor-not-allowed' : 'hover:text-white'"
+                                    class="text-xs font-medium text-gray-400 transition-colors">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Glossary Terms -->
+                {% if page.extra.glossary_terms is defined %}
+                {% set glossary_section = get_section(path="glossary/_index.md") %}
+                <div class="p-6 bg-gray-700 rounded-xl border border-white/10"
+                     x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 500)"
+                     x-show="shown" x-transition:enter="transition ease-out duration-300"
+                     x-transition:enter-start="opacity-0 transform translate-x-4"
+                     x-transition:enter-end="opacity-100 transform translate-x-0">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
+                        </svg>
+                        Related Glossary
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        {% for term in page.extra.glossary_terms %}
+                        {% set_global found = false %}
+                        {% for gp in glossary_section.pages %}
+                        {% if gp.slug == term %}
+                        <a href="{{ gp.permalink }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-800/80 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 transition-all">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                            {{ gp.title }}
+                        </a>
+                        {% set_global found = true %}
+                        {% endif %}
+                        {% endfor %}
+                        {% if not found %}
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-800 text-gray-400 rounded-lg border border-gray-700">
+                            {{ term | replace(from="-", to=" ") | title }}
+                        </span>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {{ sidebar::full_sidebar(current_path=current_path) }}
+</div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="mt-8 pt-8 border-t border-gray-700">
+            <a href="{{ config.base_url }}/applications/" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-gray-950 bg-white rounded-xl focus:ring-4 focus:ring-rose-800 transition-all shadow-lg hover:shadow-xl">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Back to Applications
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Chart.js for interactive visualizations -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script id="section-nav-data" type="application/json">
+[
+    {% if page.ancestors | length > 1 %}
+    {% set parent_section = get_section(path=page.ancestors | last) %}
+    {% for sibling in parent_section.pages %}
+    {
+        "title": {{ sibling.title | json_encode | safe }},
+        "url": {{ sibling.permalink | json_encode | safe }},
+        "isCurrent": {% if sibling.permalink == page.permalink %}true{% else %}false{% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+    {% endif %}
+]
+</script>
+<script>
+function sectionNav() {
+    var allItems = JSON.parse(document.getElementById('section-nav-data').textContent);
+    var perPage = 20;
+    return {
+        shown: false,
+        allItems: allItems,
+        currentPage: Math.max(1, Math.ceil((allItems.findIndex(function(i) { return i.isCurrent; }) + 1) / perPage)),
+        perPage: perPage,
+        get totalItems() { return this.allItems.length; },
+        get totalPages() { return Math.ceil(this.allItems.length / this.perPage); },
+        get paginatedItems() {
+            var start = (this.currentPage - 1) * this.perPage;
+            return this.allItems.slice(start, start + this.perPage);
+        },
+        nextPage: function() { if (this.currentPage < this.totalPages) this.currentPage++; },
+        prevPage: function() { if (this.currentPage > 1) this.currentPage--; }
+    };
+}
+</script>
+{% endblock content %}
