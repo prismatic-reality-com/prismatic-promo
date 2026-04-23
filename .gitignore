@@ -1,17 +1,17 @@
-[38;2;248;248;242m# Build artifacts[0m
-[38;2;248;248;242mpublic/[0m
-[38;2;248;248;242m/public[0m
+# Build artifacts
+public/
+/public
 
-[38;2;248;248;242m# Node (unused — kept for parity with local dev if someone runs scripts)[0m
-[38;2;248;248;242mnode_modules/[0m
+# Node (unused — kept for parity with local dev if someone runs scripts)
+node_modules/
 
-[38;2;248;248;242m# OS cruft[0m
-[38;2;248;248;242m.DS_Store[0m
-[38;2;248;248;242mThumbs.db[0m
+# OS cruft
+.DS_Store
+Thumbs.db
 
-[38;2;248;248;242m# Editor[0m
-[38;2;248;248;242m.vscode/[0m
-[38;2;248;248;242m.idea/[0m
+# Editor
+.vscode/
+.idea/
 
-[38;2;248;248;242m# Zola runtime[0m
-[38;2;248;248;242m.zola-cache/[0m
+# Zola runtime
+.zola-cache/
