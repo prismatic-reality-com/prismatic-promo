@@ -4,10 +4,10 @@ description = "Decision Infrastructure under Uncertainty | Due Diligence | Risk 
 default_language = "en"
 compile_sass = false
 build_search_index = false
-generate_feeds = true
+generate_feeds = false
 feed_filenames = ["atom.xml", "rss.xml"]
 ignored_content = ["node_modules/**"]
-minify_html = true
+minify_html = false
 hard_link_static = false
 
 [extra]
