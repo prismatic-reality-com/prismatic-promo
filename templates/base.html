@@ -792,11 +792,11 @@
             // Load glossary CSS on-demand
             var gcss = document.createElement('link');
             gcss.rel = 'stylesheet';
-            gcss.href = '/css/glossary-hover-liveview.css';
+            gcss.href = '{{ config.base_url | safe }}/css/glossary-hover-liveview.css';
             document.head.appendChild(gcss);
             var gopt = document.createElement('link');
             gopt.rel = 'stylesheet';
-            gopt.href = '/css/glossary-optimized.css';
+            gopt.href = '{{ config.base_url | safe }}/css/glossary-optimized.css';
             document.head.appendChild(gopt);
 
             function initializeGlossaryLinks() {
@@ -1055,7 +1055,7 @@
                 p5Script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js';
                 p5Script.onload = function() {
                     var m = document.createElement('script');
-                    m.src = '/js/p5-creative-manager.js';
+                    m.src = '{{ config.base_url | safe }}/js/p5-creative-manager.js';
                     document.body.appendChild(m);
                 };
                 document.body.appendChild(p5Script);
@@ -1063,13 +1063,13 @@
             // Chart.js
             if (document.querySelector('canvas, [data-chart], [data-chart-type], .chart-container')) {
                 var cs = document.createElement('script');
-                cs.src = '/js/vendor/chart.umd.min.js';
+                cs.src = '{{ config.base_url | safe }}/js/vendor/chart.umd.min.js';
                 cs.onload = function() {
                     var dm = document.createElement('script');
-                    dm.src = '/js/chart-data-manager.js';
+                    dm.src = '{{ config.base_url | safe }}/js/chart-data-manager.js';
                     document.body.appendChild(dm);
                     var cm = document.createElement('script');
-                    cm.src = '/js/prismatic-chart-manager.js';
+                    cm.src = '{{ config.base_url | safe }}/js/prismatic-chart-manager.js';
                     document.body.appendChild(cm);
                 };
                 document.body.appendChild(cs);
@@ -1077,19 +1077,19 @@
             // Mermaid.js
             if (document.querySelector('.mermaid, [data-mermaid], pre > code.language-mermaid')) {
                 var ms = document.createElement('script');
-                ms.src = '/js/mermaid-init.js';
+                ms.src = '{{ config.base_url | safe }}/js/mermaid-init.js';
                 document.body.appendChild(ms);
             }
             // Code copy buttons (only on pages with code blocks)
             if (document.querySelector('pre > code')) {
                 var cc = document.createElement('script');
-                cc.src = '/js/code-copy.js';
+                cc.src = '{{ config.base_url | safe }}/js/code-copy.js';
                 document.body.appendChild(cc);
             }
             // Cross-link navigator (only if cross-links present)
             if (document.querySelector('[data-cross-link], .cross-link-section')) {
                 var cl = document.createElement('script');
-                cl.src = '/js/cross-link-navigator.js';
+                cl.src = '{{ config.base_url | safe }}/js/cross-link-navigator.js';
                 document.body.appendChild(cl);
             }
         })();

@@ -158,7 +158,7 @@
                             <div class="flex flex-wrap gap-1">
                                 <template x-for="cmd in item.commands.slice(0, 3)" :key="cmd">
                                     <span
-                                        @click.prevent.stop="window.location.href='/commands/' + cmd.replace(/^\//, '') + '/'"
+                                        @click.prevent.stop="window.location.href='{{ config.base_url | safe }}/commands/' + cmd.replace(/^\//, '') + '/'"
                                         class="px-2 py-0.5 text-xs font-mono bg-gray-700 text-gray-300 rounded cursor-pointer hover:text-purple-300 hover:bg-gray-600 transition-colors"
                                         x-text="cmd"></span>
                                 </template>
