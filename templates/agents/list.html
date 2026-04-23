@@ -10,7 +10,7 @@
 <div class="mb-8">
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold tracking-widest text-gray-400 bg-white/5 rounded-full uppercase border border-white/10">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -59,7 +59,7 @@
                         <div class="flex-1">
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -95,18 +95,18 @@
 
                         <!-- View Toggle -->
                         <div class="flex items-center bg-gray-700 border border-gray-600 rounded-lg overflow-hidden">
-                            <button @click="viewMode = 'cards'"
+                            <button type="button" @click="viewMode = 'cards'"
                                 :class="viewMode === 'cards' ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-600'"
                                 class="px-3 py-2.5 text-sm font-medium transition-colors">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                 </svg>
                             </button>
-                            <button @click="viewMode = 'table'"
+                            <button type="button" @click="viewMode = 'table'"
                                 :class="viewMode === 'table' ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-600'"
                                 class="px-3 py-2.5 text-sm font-medium transition-colors">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M4 6h16M4 10h16M4 14h16M4 18h16" />
                                 </svg>
@@ -114,7 +114,7 @@
                         </div>
 
                         <!-- Reset -->
-                        <button @click="searchTerm = ''; sortField = 'title'; selectedDomain = ''; currentPage = 1"
+                        <button type="button" @click="searchTerm = ''; sortField = 'title'; selectedDomain = ''; currentPage = 1"
                             class="px-4 py-2.5 text-sm font-medium text-gray-300 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 transition-colors">
                             Reset
                         </button>
@@ -125,7 +125,7 @@
                             <span class="font-semibold text-white" x-text="filteredItems.length"></span> agents</span>
                         <span x-show="selectedDomain" class="flex items-center gap-2">
                             <span class="text-purple-400 font-medium" x-text="'Domain: ' + selectedDomain"></span>
-                            <button @click="selectedDomain = ''; currentPage = 1"
+                            <button type="button" @click="selectedDomain = ''; currentPage = 1"
                                 class="text-gray-500 hover:text-white transition-colors">&times;</button>
                         </span>
                     </div>
@@ -145,7 +145,7 @@
                                     <h3 class="font-semibold text-white group-hover:text-purple-400 transition-colors truncate"
                                         x-text="item.title"></h3>
                                     <div class="flex items-center gap-2">
-                                        <button
+                                        <button type="button"
                                             @click.prevent="selectedDomain = item.domain_normalized; currentPage = 1"
                                             class="text-xs text-purple-400 hover:text-purple-300 transition-colors"
                                             x-text="item.domain_normalized"></button>
@@ -180,7 +180,7 @@
                                     @click="toggleSort('title')">
                                     <div class="flex items-center gap-2">
                                         Agent
-                                        <svg class="w-3 h-3" :class="{'rotate-180': sortField === 'title' && sortDesc}"
+                                        <svg aria-hidden="true" class="w-3 h-3" :class="{'rotate-180': sortField === 'title' && sortDesc}"
                                             fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
                                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -192,7 +192,7 @@
                                     @click="toggleSort('domain_normalized')">
                                     <div class="flex items-center gap-2">
                                         Domain
-                                        <svg class="w-3 h-3"
+                                        <svg aria-hidden="true" class="w-3 h-3"
                                             :class="{'rotate-180': sortField === 'domain_normalized' && sortDesc}"
                                             fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
@@ -221,7 +221,7 @@
                                         </div>
                                     </td>
                                     <td class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4">
-                                        <button
+                                        <button type="button"
                                             @click.prevent="selectedDomain = item.domain_normalized; currentPage = 1"
                                             class="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 transition-colors cursor-pointer"
                                             x-text="item.domain_normalized"></button>
@@ -253,13 +253,13 @@
 
                 <!-- Empty State -->
                 <div x-show="filteredItems.length === 0" class="text-center py-16">
-                    <svg class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor"
+                    <svg aria-hidden="true" class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                     <p class="text-gray-400 text-lg">No agents match your search.</p>
-                    <button @click="searchTerm = ''; selectedDomain = ''; currentPage = 1"
+                    <button type="button" @click="searchTerm = ''; selectedDomain = ''; currentPage = 1"
                         class="mt-4 px-4 py-2 text-sm text-purple-400 hover:text-purple-300 transition-colors">
                         Clear filters
                     </button>
@@ -272,18 +272,18 @@
                             class="font-semibold text-white" x-text="totalPages"></span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button @click="currentPage = Math.max(1, currentPage - 1)" :disabled="currentPage === 1"
+                        <button type="button" @click="currentPage = Math.max(1, currentPage - 1)" :disabled="currentPage === 1"
                             :class="{'opacity-50 cursor-not-allowed': currentPage === 1}"
                             class="px-4 py-2 text-sm font-medium text-gray-300 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700">
                             Previous
                         </button>
                         <template x-for="page in visiblePages" :key="page">
-                            <button @click="currentPage = page"
+                            <button type="button" @click="currentPage = page"
                                 :class="currentPage === page ? 'bg-purple-600 text-white border-purple-500' : 'bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700'"
                                 class="px-4 py-2 text-sm font-medium border rounded-lg" x-text="page">
                             </button>
                         </template>
-                        <button @click="currentPage = Math.min(totalPages, currentPage + 1)"
+                        <button type="button" @click="currentPage = Math.min(totalPages, currentPage + 1)"
                             :disabled="currentPage === totalPages"
                             :class="{'opacity-50 cursor-not-allowed': currentPage === totalPages}"
                             class="px-4 py-2 text-sm font-medium text-gray-300 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700">
@@ -303,23 +303,23 @@
                 <!-- Domain Categories Card -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
                     x-data="{ expanded: true }">
-                    <button @click="expanded = !expanded"
+                    <button type="button" @click="expanded = !expanded"
                         class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                             <span class="font-semibold text-white text-sm">Domain Categories</span>
                         </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
+                        <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform duration-200"
                             :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="expanded" x-collapse x-transition class="px-4 pb-4 border-t border-gray-700/50 pt-4">
                         <!-- All button -->
-                        <button @click="selectedDomain = ''; currentPage = 1"
+                        <button type="button" @click="selectedDomain = ''; currentPage = 1"
                             :class="selectedDomain === '' ? 'bg-purple-600 text-white border-purple-500' : 'bg-gray-700 text-gray-300 border-gray-600 hover:border-purple-500/30 hover:text-purple-400'"
                             class="w-full flex items-center justify-between px-3 py-2 mb-2 text-sm font-medium border rounded-lg transition-all">
                             <span>All Domains</span>
@@ -328,7 +328,7 @@
                         <!-- Scrollable domain list -->
                         <div class="max-h-[400px] overflow-y-auto space-y-1 pr-1 scrollbar-thin">
                             <template x-for="dom in domainStats" :key="dom.name">
-                                <button @click="selectedDomain = dom.name; currentPage = 1"
+                                <button type="button" @click="selectedDomain = dom.name; currentPage = 1"
                                     :class="selectedDomain === dom.name ? 'bg-purple-600/20 text-purple-300 border-purple-500/50' : 'bg-gray-700/50 text-gray-400 border-transparent hover:border-gray-600 hover:text-gray-300'"
                                     class="w-full flex items-center justify-between px-3 py-1.5 text-xs font-medium border rounded-lg transition-all">
                                     <span class="truncate" x-text="dom.name"></span>
@@ -343,16 +343,16 @@
                 <!-- Agent Statistics Card -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
                     x-data="{ expanded: true }">
-                    <button @click="expanded = !expanded"
+                    <button type="button" @click="expanded = !expanded"
                         class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                             <span class="font-semibold text-white text-sm">Agent Statistics</span>
                         </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
+                        <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform duration-200"
                             :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
@@ -395,16 +395,16 @@
                 <!-- Quick Navigation Card -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
                     x-data="{ expanded: true }">
-                    <button @click="expanded = !expanded"
+                    <button type="button" @click="expanded = !expanded"
                         class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus:bg-gray-750">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                             </svg>
                             <span class="font-semibold text-white text-sm">Quick Navigation</span>
                         </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
+                        <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform duration-200"
                             :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
@@ -414,7 +414,7 @@
                             <a href="{{ config.base_url }}/commands/"
                                 class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
+                                    <svg aria-hidden="true" class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -427,7 +427,7 @@
                             </a>
                             <a href="{{ config.base_url }}/apps/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
+                                    <svg aria-hidden="true" class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -439,7 +439,7 @@
                             </a>
                             <a href="{{ config.base_url }}/teams/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
+                                    <svg aria-hidden="true" class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -453,7 +453,7 @@
                             <a href="{{ config.base_url }}/glossary/"
                                 class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
+                                    <svg aria-hidden="true" class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -467,7 +467,7 @@
                             <a href="{{ config.base_url }}/architecture/"
                                 class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
+                                    <svg aria-hidden="true" class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />

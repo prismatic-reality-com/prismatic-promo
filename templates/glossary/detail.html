@@ -92,7 +92,7 @@
                 <li class="inline-flex items-center">
                     <a href="{{ config.base_url }}"
                         class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-gray-400 transition-colors">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                         </svg>
@@ -101,7 +101,7 @@
                 </li>
                 <li>
                     <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd" />
@@ -112,7 +112,7 @@
                 </li>
                 <li aria-current="page">
                     <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd"
                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd" />
@@ -150,7 +150,7 @@
                             <span class="text-xl font-black text-white tracking-tight">{{ page.extra.acronym |
                                 truncate(length=4, end="") }}</span>
                             {% else %}
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
@@ -229,7 +229,7 @@
                      x-transition:enter-end="opacity-100 transform translate-x-0">
                     <div x-data="glossaryNav()">
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
@@ -249,13 +249,13 @@
                         </ul>
                         <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-700"
                             x-show="totalPages > 1">
-                            <button @click="prevPage()" :disabled="currentPage === 1"
+                            <button type="button" @click="prevPage()" :disabled="currentPage === 1"
                                 :class="currentPage === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:text-white'"
                                 class="text-xs font-medium text-gray-400 transition-colors">
                                 Previous
                             </button>
                             <span class="text-xs text-gray-400" x-text="currentPage + ' / ' + totalPages"></span>
-                            <button @click="nextPage()" :disabled="currentPage === totalPages"
+                            <button type="button" @click="nextPage()" :disabled="currentPage === totalPages"
                                 :class="currentPage === totalPages ? 'opacity-30 cursor-not-allowed' : 'hover:text-white'"
                                 class="text-xs font-medium text-gray-400 transition-colors">
                                 Next
@@ -274,7 +274,7 @@
                      x-transition:enter-start="opacity-0 transform translate-x-4"
                      x-transition:enter-end="opacity-100 transform translate-x-0">
                     <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                         </svg>
@@ -286,7 +286,7 @@
                         {% for gp in glossary_section.pages %}
                         {% if gp.slug == related %}
                         <a href="{{ gp.permalink }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700/80 text-amber-400 rounded-lg border border-gray-600 hover:bg-amber-900/40 hover:border-amber-500 transition-all">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                            <svg aria-hidden="true" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             {{ gp.title }}
                         </a>
                         {% set_global found = true %}
@@ -310,7 +310,7 @@
         <div class="mt-8 pt-8 border-t border-gray-700">
             <a href="{{ config.base_url }}/glossary/"
                 class="inline-flex items-center px-6 py-3 text-sm font-semibold text-gray-950 bg-white rounded-xl focus:ring-4 focus:ring-amber-800 transition-all shadow-lg hover:shadow-xl">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
                 Back to Glossary

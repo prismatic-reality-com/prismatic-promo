@@ -151,7 +151,7 @@
                     <div class="flex items-center justify-between">
                         {% if page.earlier %}
                         <a href="{{ page.earlier.permalink }}" class="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
                             </svg>
                             <span class="max-w-xs truncate">{{ page.earlier.title }}</span>
@@ -165,7 +165,7 @@
                         {% if page.later %}
                         <a href="{{ page.later.permalink }}" class="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
                             <span class="max-w-xs truncate">{{ page.later.title }}</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
                         </a>
@@ -183,7 +183,7 @@
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
                     <div class="p-4 border-b border-gray-700">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
                             </svg>
                             <span class="font-semibold text-white text-sm">On This Page</span>
@@ -256,7 +256,7 @@
                 <!-- RSS -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">
                     <a href="/atom.xml" class="flex items-center gap-3 text-sm text-gray-300 hover:text-green-400 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M6.18 15.64a2.18 2.18 0 010 4.36 2.18 2.18 0 010-4.36M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44m0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93v-2.83z"/>
                         </svg>
                         Subscribe via RSS

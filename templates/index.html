@@ -4,12 +4,9 @@
 <!-- ============================================================ -->
 <!-- HERO: POSITIONING STATEMENT                                   -->
 <!-- ============================================================ -->
-<section class="relative overflow-hidden min-h-[90vh] flex items-center">
-    <!-- Subtle grid background -->
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-
-    <div class="max-w-screen-xl px-4 py-16 mx-auto lg:py-28 relative z-10">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
+<section class="relative overflow-hidden min-h-screen sm:min-h-[90vh] flex items-center bg-hero-grid">
+    <div class="max-w-screen-xl px-4 py-12 sm:py-16 mx-auto lg:py-28 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <!-- Left: Copy -->
             <div class="lg:col-span-7">
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-8 text-xs font-medium tracking-wide text-gray-400 bg-white/5 rounded-full border border-white/10">
@@ -32,14 +29,14 @@
 
                 <div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 mb-10">
                     <a href="/executive/"
-                        class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold text-gray-950 bg-white hover:bg-gray-100 transition-all duration-200 uppercase tracking-wider">
+                        class="inline-flex items-center justify-center px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-gray-950 bg-white hover:bg-gray-100 dark:text-gray-950 dark:bg-white dark:hover:bg-gray-100 transition-all duration-200 uppercase tracking-wider">
                         Request Assessment
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
                     </a>
                     <a href="/executive/security-dashboard/"
-                        class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold text-gray-300 border border-white/20 hover:bg-white/5 hover:text-white hover:border-white transition-all duration-200 uppercase tracking-wider">
+                        class="inline-flex items-center justify-center px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-gray-300 border border-white/20 hover:bg-white/5 hover:text-white hover:border-white transition-all duration-200 uppercase tracking-wider">
                         See the System
                     </a>
                 </div>
@@ -109,7 +106,7 @@
 <!-- ============================================================ -->
 <section class="py-6 border-y border-white/5">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-center"
              x-data="counterAnimation()"
              x-intersect.once="startCounting()">
             <div>
@@ -148,10 +145,10 @@
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5">
                 <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
@@ -161,7 +158,7 @@
 
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5">
                 <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                     </svg>
                 </div>
@@ -171,7 +168,7 @@
 
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5">
                 <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                     </svg>
                 </div>
@@ -200,12 +197,12 @@
         </div>
 
         <!-- Feature grid with Flowbite card pattern -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             <!-- Pipeline-Based Inference -->
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
@@ -218,7 +215,7 @@
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                     </div>
@@ -231,7 +228,7 @@
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
@@ -244,7 +241,7 @@
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                         </svg>
                     </div>
@@ -257,7 +254,7 @@
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
                         </svg>
                     </div>
@@ -270,7 +267,7 @@
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-rose-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                         </svg>
                     </div>
@@ -287,7 +284,7 @@
 <!-- ============================================================ -->
 <section class="py-20 lg:py-28 border-t border-white/5" id="dashboard">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <!-- Left: Description -->
             <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-medium tracking-wide text-gray-400 bg-white/5 rounded-full border border-white/10">
@@ -305,7 +302,7 @@
                 <div class="space-y-4">
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-emerald-500/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
                         </div>
@@ -316,7 +313,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-emerald-500/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
                         </div>
@@ -327,7 +324,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-emerald-500/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
                         </div>
@@ -349,15 +346,15 @@
                         </div>
                         <!-- Tabs -->
                         <div class="flex gap-1">
-                            <button @click="switchView('radar')"
+                            <button type="button" @click="switchView('radar')"
                                     :class="view === 'radar' ? 'bg-white/10 text-white' : 'text-gray-600 hover:text-gray-400'"
                                     class="px-2.5 py-1 text-[10px] font-medium rounded transition-colors">Radar</button>
-                            <button @click="switchView('bar')"
+                            <button type="button" @click="switchView('bar')"
                                     :class="view === 'bar' ? 'bg-white/10 text-white' : 'text-gray-600 hover:text-gray-400'"
                                     class="px-2.5 py-1 text-[10px] font-medium rounded transition-colors">Breakdown</button>
                         </div>
                     </div>
-                    <div class="relative" style="height: 300px;">
+                    <div class="relative h-[300px] sm:h-[360px] lg:h-[420px]">
                         <canvas id="riskChart"></canvas>
                     </div>
                     <div class="grid grid-cols-3 gap-3 mt-4 pt-3 border-t border-white/5">
@@ -398,13 +395,13 @@
         <!-- Flowbite Tabs -->
         <div class="flex justify-center mb-8">
             <div class="inline-flex rounded-lg bg-white/5 p-1 border border-white/5">
-                <button @click="activeTab = 'rating'"
+                <button type="button" @click="activeTab = 'rating'"
                         :class="activeTab === 'rating' ? 'bg-white/10 text-white' : 'text-gray-500 hover:text-gray-300'"
                         class="px-4 py-2 text-xs font-medium rounded-md transition-colors">vs Security Rating Platforms</button>
-                <button @click="activeTab = 'risk'"
+                <button type="button" @click="activeTab = 'risk'"
                         :class="activeTab === 'risk' ? 'bg-white/10 text-white' : 'text-gray-500 hover:text-gray-300'"
                         class="px-4 py-2 text-xs font-medium rounded-md transition-colors">vs Risk Scoring Vendors</button>
-                <button @click="activeTab = 'governance'"
+                <button type="button" @click="activeTab = 'governance'"
                         :class="activeTab === 'governance' ? 'bg-white/10 text-white' : 'text-gray-500 hover:text-gray-300'"
                         class="px-4 py-2 text-xs font-medium rounded-md transition-colors">vs AI Governance Tools</button>
             </div>
@@ -414,7 +411,7 @@
         <div class="max-w-4xl mx-auto">
             <!-- vs Security Rating Platforms -->
             <div x-show="activeTab === 'rating'" x-transition>
-                <div class="overflow-hidden rounded-xl border border-white/5">
+                <div class="overflow-x-auto rounded-xl border border-white/5">
                     <table class="w-full text-sm">
                         <thead>
                             <tr class="bg-white/[0.03]">
@@ -437,7 +434,7 @@
 
             <!-- vs Risk Scoring Vendors -->
             <div x-show="activeTab === 'risk'" x-transition>
-                <div class="overflow-hidden rounded-xl border border-white/5">
+                <div class="overflow-x-auto rounded-xl border border-white/5">
                     <table class="w-full text-sm">
                         <thead>
                             <tr class="bg-white/[0.03]">
@@ -459,7 +456,7 @@
 
             <!-- vs AI Governance Tools -->
             <div x-show="activeTab === 'governance'" x-transition>
-                <div class="overflow-hidden rounded-xl border border-white/5">
+                <div class="overflow-x-auto rounded-xl border border-white/5">
                     <table class="w-full text-sm">
                         <thead>
                             <tr class="bg-white/[0.03]">
@@ -496,7 +493,7 @@
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
             <div class="p-6 bg-white/[0.03] rounded-xl border border-white/5 text-center">
                 <div class="text-3xl font-bold text-emerald-400 tabular-nums mb-2">60-80%</div>
                 <div class="text-sm font-medium text-white mb-1">Faster Risk Assessment</div>
@@ -526,7 +523,7 @@
 <!-- ============================================================ -->
 <section class="py-20 lg:py-28 border-t border-white/5" id="icp">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-medium tracking-wide text-gray-400 bg-white/5 rounded-full border border-white/10">
                     Ideal Customer Profile
@@ -636,7 +633,7 @@
 <!-- ============================================================ -->
 <section class="py-20 lg:py-28 border-t border-white/5">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-5 tracking-tight">
                     Built on fault-tolerant infrastructure.
@@ -701,7 +698,7 @@
 <!-- ============================================================ -->
 <section class="py-20 lg:py-28 border-t border-white/5">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 max-w-4xl mx-auto">
             <!-- Enterprise CTA -->
             <div class="p-8 bg-white/[0.03] rounded-2xl border border-white/5 hover:border-emerald-500/20 transition-colors">
                 <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium text-emerald-400 bg-emerald-500/10 rounded-full">
@@ -714,26 +711,26 @@
                 </p>
                 <ul class="space-y-2 mb-6">
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         Attack surface discovery
                     </li>
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         Security rating (A-F) with evidence
                     </li>
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         NIS2 gap analysis
                     </li>
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         Board-ready PDF report
                     </li>
                 </ul>
                 <a href="/executive/"
                     class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-gray-950 rounded-lg bg-white hover:bg-gray-100 transition-all">
                     Request Assessment
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </a>
@@ -751,26 +748,26 @@
                 </p>
                 <ul class="space-y-2 mb-6">
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         Unlimited supplier monitoring
                     </li>
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         Real-time drift detection
                     </li>
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         Due diligence automation
                     </li>
                     <li class="flex items-center gap-2 text-sm text-gray-500">
-                        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         API access + workspace isolation
                     </li>
                 </ul>
                 <a href="/executive/roi-calculator/"
                     class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-gray-300 border border-white/10 rounded-lg hover:bg-white/5 hover:text-white transition-all">
                     Calculate ROI
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </a>
